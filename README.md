@@ -1,178 +1,251 @@
+<!--
+  Hi! This README is generated for github.com/Miaoricle.
+  ✏️  Text, links and badges below are safe to edit by hand.
+  🐾  Images in ./profile/ are redrawn by GitHub Actions; change them via cat.config.json instead.
+  📖  See SETUP.md for the full guide (themes, WakaTime, feeding the cat, troubleshooting).
+-->
+
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a1b27,100:58a6ff&height=200&section=header&text=Amir%20Nazhan&fontSize=60&fontColor=ffffff&fontAlignY=38&desc=Software%20Engineering%20Student%20%7C%20Builder%20%7C%20Researcher&descAlignY=58&descSize=18" width="100%"/>
+<img src="./profile/banner.svg" width="100%" alt="Amir Nazhan: Software Engineering student at UniKL MIIT and freelance developer. A pixel cat peeks over a laptop, typing." />
 
-<br/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=CBA6F7&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+  <img alt="Typing: Hey there, I'm Amir. Final-year Software Engineering student. Flutter, Python, PHP, C#, C++, JS. Freelance web and mobile developer." src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+</picture>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=🎓+3rd+Year+Software+Engineering+Student;💻+Full-Stack+%26+Mobile+Developer;📊+Data+Analysis+%26+ML+Enthusiast;🏆+Dean's+List+Recipient+(Sem+1%2C+3+%26+4);🚀+Always+Building+Something+New)](https://git.io/typing-svg)
-
-<br/>
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Amir%20Nazhan-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/amirnazhan)
-[![GitHub](https://img.shields.io/badge/GitHub-Miaoricle-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Miaoricle)
-[![Email](https://img.shields.io/badge/Email-amir.harisham01%40s.unikl.edu.my-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:amir.harisham01@s.unikl.edu.my)
-
-<br/>
-
-![Profile Views](https://komarev.com/ghpvc/?username=Miaoricle&label=Profile+Views&color=58A6FF&style=flat-square)
+<img src="https://komarev.com/ghpvc/?username=Miaoricle&label=curious+cats+visited&color=CBA6F7&style=for-the-badge" alt="Profile views" />
+<a href="https://github.com/Miaoricle/Miaoricle/issues/new?title=%F0%9F%90%9F%20feed-the-cat&body=Just%20press%20%2A%2ACreate%2A%2A%20to%20toss%20Miao%20a%20fish%20%F0%9F%90%9F%0A%0AA%20bot%20will%20say%20thanks%20and%20close%20this%20issue%20within%20a%20minute%20or%20two.%20Each%20visitor%20can%20feed%20Miao%20once%20every%2012%20hours."><img src="https://img.shields.io/badge/feed_the_cat-F5C2E7?style=for-the-badge&labelColor=1E1E2E&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRjVDMkU3JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMi41IDEyYzIuOC00LjYgOC42LTYgMTMtMi42TDIwLjUgNnYxMmwtNS0zLjRjLTQuNCAzLjQtMTAuMiAyLTEzLTIuNnonLz48Y2lyY2xlIGN4PSc4JyBjeT0nMTEuMicgcj0nLjYnLz48L3N2Zz4%3D" alt="Feed the cat" title="Toss Miao a fish (opens an issue, a bot closes it)" /></a>
 
 </div>
 
----
+## 🐾 About me
 
-## 👨‍💻 About Me
+<a href="https://github.com/Miaoricle/Miaoricle/issues/new?title=%F0%9F%90%9F%20feed-the-cat&body=Just%20press%20%2A%2ACreate%2A%2A%20to%20toss%20Miao%20a%20fish%20%F0%9F%90%9F%0A%0AA%20bot%20will%20say%20thanks%20and%20close%20this%20issue%20within%20a%20minute%20or%20two.%20Each%20visitor%20can%20feed%20Miao%20once%20every%2012%20hours."><img align="right" width="380" src="./profile/cat-status.svg" alt="Miao the cat's live status: mood, contributions this week, streak and how many fish visitors have fed it" title="This is Miao. Click to feed Miao a fish 🐟" /></a>
+
+- 🎓 Final-year **Software Engineering** student at **UniKL MIIT** · 🏆 Dean's List ×3
+- 🏃 Building **FitAlign**, an all-in-one Flutter fitness app (my final year project)
+- 💼 **Freelance developer**: web & mobile builds for real clients
+- 🤖 Exploring **machine learning & computer vision** (TensorFlow, MediaPipe, Roboflow)
+- 📊 Turning data into stories with **Python**, Pandas and NetworkX
+- 🎯 Goal: grow into a well-rounded software engineer · **open to internships** 🟢
+- 💬 Ask me about **Flutter**, **PHP/MySQL** or **data visualisation**
+- ⚡ Fun fact: my handle is part cat, part oracle. The Miaoricle answers at the bottom of this page 🔮
+
+<details>
+<summary><b>🧾 cat profile.yaml</b> <sub>(the details)</sub></summary>
 
 ```yaml
-Name        : Amir Nazhan
-University  : Universiti Kuala Lumpur MIIT
-Degree      : Bachelor in Software Engineering (2023 – 2027)
-CGPA        : 3.61  |  🏆 Dean's List – Semester 1, 3 & 4
-Location    : Wangsa Maju, Kuala Lumpur, Malaysia
-Interests   : Web Dev · Mobile Apps · Data Analysis · Digital Communities
-Languages   : English (Fluent) · Bahasa Melayu (Fluent)
-Status      : Open to Internship Opportunities 🟢
+name        : Amir Nazhan
+university  : Universiti Kuala Lumpur, Malaysian Institute of Information Technology (UniKL MIIT)
+degree      : Bachelor in Software Engineering (2023 – 2027)
+cgpa        : 3.59 (Degree) · 3.25 (Diploma)
+dean_list   : Semester 1, 3 & 4
+workshop    : Machine Learning for Assistive Technology · ITS, Indonesia
+based_in    : Kuala Lumpur, Malaysia 🇲🇾
+speaks      : English (fluent) · Bahasa Melayu (fluent)
+status      : open to internships & freelance work 🟢
+cat         : Miao (orange, pixelated, will accept fish)
 ```
 
----
+</details>
 
-## 🛠️ Tech Stack
+<details>
+<summary><b>😺 Pet the cat</b> <sub>(go on, click)</sub></summary>
+<br />
+<div align="center"><img src="./profile/pet.svg" width="600" alt="A pixel cat purrs happily with hearts floating above it" /></div>
+</details>
+
+<br clear="right" />
+
+<img src="./profile/divider.svg" width="100%" alt="" />
+
+## 🧶 Tech stack
+<sub>The ball of yarn I play with every day. Hover a badge to see where I've used it.</sub>
+
+<table>
+<tr>
+<td width="150"><b>💬 Languages</b></td>
+<td>
+<img src="https://img.shields.io/badge/Dart-1E1E2E?style=for-the-badge&logo=dart&logoColor=CBA6F7" alt="Dart" title="Dart: FitAlign, my final year project" />
+<img src="https://img.shields.io/badge/Python-1E1E2E?style=for-the-badge&logo=python&logoColor=CBA6F7" alt="Python" title="Python: data analysis, ML and automation" />
+<img src="https://img.shields.io/badge/PHP-1E1E2E?style=for-the-badge&logo=php&logoColor=CBA6F7" alt="PHP" title="PHP: RICA complaint system" />
+<img src="https://img.shields.io/badge/JavaScript-1E1E2E?style=for-the-badge&logo=javascript&logoColor=CBA6F7" alt="JavaScript" title="JavaScript: web front-ends" />
+<img src="https://img.shields.io/badge/C%23-1E1E2E?style=for-the-badge&logo=dotnet&logoColor=CBA6F7" alt="C#" title="C#: Game Vault desktop app" />
+<img src="https://img.shields.io/badge/C%2B%2B-1E1E2E?style=for-the-badge&logo=cplusplus&logoColor=CBA6F7" alt="C++" title="C++: laundry management CLI" />
+<img src="https://img.shields.io/badge/HTML5-1E1E2E?style=for-the-badge&logo=html5&logoColor=CBA6F7" alt="HTML5" title="HTML5: every web project" />
+<img src="https://img.shields.io/badge/CSS-1E1E2E?style=for-the-badge&logo=css&logoColor=CBA6F7" alt="CSS" title="CSS: every web project" />
+</td>
+</tr>
+<tr>
+<td width="150"><b>🧩 Frameworks & Libraries</b></td>
+<td>
+<img src="https://img.shields.io/badge/Flutter-1E1E2E?style=for-the-badge&logo=flutter&logoColor=FAB387" alt="Flutter" title="Flutter: FitAlign, my final year project" />
+<img src="https://img.shields.io/badge/TensorFlow-1E1E2E?style=for-the-badge&logo=tensorflow&logoColor=FAB387" alt="TensorFlow" title="TensorFlow: gesture recognition (ITS workshop)" />
+<img src="https://img.shields.io/badge/MediaPipe-1E1E2E?style=for-the-badge&logo=mediapipe&logoColor=FAB387" alt="MediaPipe" title="MediaPipe: real-time hand tracking" />
+<img src="https://img.shields.io/badge/Pandas-1E1E2E?style=for-the-badge&logo=pandas&logoColor=FAB387" alt="Pandas" title="Pandas: Wikipedia edit analysis" />
+<img src="https://img.shields.io/badge/Matplotlib-1E1E2E?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRkFCMzg3JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNNCAyMFYxME0xMCAyMFY0TTE2IDIwdi03TTIyIDIwSDInLz48L3N2Zz4%3D" alt="Matplotlib" title="Matplotlib: data visualisation" />
+<img src="https://img.shields.io/badge/NetworkX-1E1E2E?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRkFCMzg3JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48Y2lyY2xlIGN4PSc1JyBjeT0nNicgcj0nMi41Jy8%2BPGNpcmNsZSBjeD0nMTknIGN5PSc2JyByPScyLjUnLz48Y2lyY2xlIGN4PScxMicgY3k9JzE4JyByPScyLjUnLz48cGF0aCBkPSdNNy4yIDcuMyAxMC42IDE2TTE2LjggNy4zIDEzLjQgMTZNNy41IDZoOScvPjwvc3ZnPg%3D%3D" alt="NetworkX" title="NetworkX: social network graphs" />
+</td>
+</tr>
+<tr>
+<td width="150"><b>🗄️ Databases</b></td>
+<td>
+<img src="https://img.shields.io/badge/MySQL-1E1E2E?style=for-the-badge&logo=mysql&logoColor=89DCEB" alt="MySQL" title="MySQL: PHP web systems" />
+<img src="https://img.shields.io/badge/MariaDB-1E1E2E?style=for-the-badge&logo=mariadb&logoColor=89DCEB" alt="MariaDB" title="MariaDB: PHP web systems" />
+<img src="https://img.shields.io/badge/SQLite-1E1E2E?style=for-the-badge&logo=sqlite&logoColor=89DCEB" alt="SQLite" title="SQLite: on-device storage in Flutter" />
+</td>
+</tr>
+<tr>
+<td width="150"><b>🛠️ Developer Tools</b></td>
+<td>
+<img src="https://img.shields.io/badge/Git-1E1E2E?style=for-the-badge&logo=git&logoColor=F5C2E7" alt="Git" title="Git: version control" />
+<img src="https://img.shields.io/badge/GitHub-1E1E2E?style=for-the-badge&logo=github&logoColor=F5C2E7" alt="GitHub" title="GitHub: team projects and this profile" />
+<img src="https://img.shields.io/badge/GitHub_Actions-1E1E2E?style=for-the-badge&logo=githubactions&logoColor=F5C2E7" alt="GitHub Actions" title="GitHub Actions: this profile updates itself" />
+<img src="https://img.shields.io/badge/VS_Code-1E1E2E?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRjVDMkU3JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdtOCA3LTUgNSA1IDVNMTYgN2w1IDUtNSA1TTEzLjUgNC41bC0zIDE1Jy8%2BPC9zdmc%2B" alt="VS Code" title="VS Code: daily driver" />
+<img src="https://img.shields.io/badge/Figma-1E1E2E?style=for-the-badge&logo=figma&logoColor=F5C2E7" alt="Figma" title="Figma: UI design and storyboards" />
+<img src="https://img.shields.io/badge/Packet_Tracer-1E1E2E?style=for-the-badge&logo=cisco&logoColor=F5C2E7" alt="Packet Tracer" title="Cisco Packet Tracer: networking labs" />
+</td>
+</tr>
+<tr>
+<td width="150"><b>🛰️ APIs, AI & Hardware</b></td>
+<td>
+<img src="https://img.shields.io/badge/Google_Maps-1E1E2E?style=for-the-badge&logo=googlemaps&logoColor=A6E3A1" alt="Google Maps" title="Google Maps: run tracking in FitAlign" />
+<img src="https://img.shields.io/badge/Stripe-1E1E2E?style=for-the-badge&logo=stripe&logoColor=A6E3A1" alt="Stripe" title="Stripe: payments in FitAlign" />
+<img src="https://img.shields.io/badge/Roboflow-1E1E2E?style=for-the-badge&logo=roboflow&logoColor=A6E3A1" alt="Roboflow" title="Roboflow: computer vision models" />
+<img src="https://img.shields.io/badge/ESP32-1E1E2E?style=for-the-badge&logo=espressif&logoColor=A6E3A1" alt="ESP32" title="ESP32: assistive tech prototype" />
+</td>
+</tr>
+</table>
+
+## 📊 GitHub metrics
+<sub>Refreshed every 6 hours by a very diligent (and slightly hungry) GitHub Action.</sub>
 
 <div align="center">
 
-### 💻 Languages
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+<img src="./profile/stats.svg" height="195" alt="GitHub stats: stars, commits, pull requests, issues and contributions" />
+<img src="./profile/top-langs.svg" height="195" alt="Most used languages" />
 
-### 📱 Frameworks & Libraries
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![MediaPipe](https://img.shields.io/badge/MediaPipe-00897B?style=for-the-badge&logo=google&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=python&logoColor=white)
-![NetworkX](https://img.shields.io/badge/NetworkX-FF6600?style=for-the-badge&logo=python&logoColor=white)
+<img src="./profile/streak.svg" width="820" alt="Contribution streak: total contributions, current streak and longest streak" />
 
-### 🗄️ Databases & Tools
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+<img src="./profile/activity.svg" width="820" alt="The contribution chase: a pixel cat walks across my contribution graph and eats every active day" />
+
+<!-- ⏱️ WakaTime: after you add the WAKATIME_USERNAME variable (SETUP.md, step 7), delete this line and the "end WakaTime" line below.
+<img src="./profile/wakatime.svg" height="175" alt="WakaTime: this week in my editor" />
+end WakaTime -->
 
 </div>
 
----
+## 🚀 Featured projects
+<sub>Things I've built (and occasionally knocked off the table).</sub>
 
-## 🚀 Projects
+<table>
+<tr>
+<td width="50%" valign="top">
 
-### 🏃 FitAlign – Your Complete Fitness Companion *(FYP)*
-> **Status:** 🔄 In Progress &nbsp;|&nbsp; **Type:** Final Year Project
+### 🏃 FitAlign
 
-A mobile application built with **Flutter** that integrates workouts, running, yoga, and diet tracking in one platform. Focuses on user behaviour data collection and digital experience analytics.
+<img src="https://img.shields.io/badge/final_year_project_%C2%B7_in_progress-FAB387?style=flat-square" alt="final year project · in progress" />
 
-`Flutter` `Dart` `SQLite` `Mobile Dev` `UX Design` `Data Analytics`
+An all-in-one fitness companion: **workouts, running, yoga and diet tracking** in a single Flutter app, with GPS run tracking on Google Maps, voice guidance through text-to-speech and Stripe payments. Built around user-behaviour data and digital-experience analytics.
 
----
+`Flutter` `Dart` `SQLite` `Google Maps` `Stripe` `TTS`
+
+</td>
+<td width="50%" valign="top">
+
+### 📊 [Wikipedia Edit Pattern Analysis](https://github.com/Miaoricle/wikipedia-edit-analysis)
+
+<img src="https://img.shields.io/badge/side_project_%C2%B7_public_repo-A6E3A1?style=flat-square" alt="side project · public repo" />
+
+Who edits Wikipedia, and how do they collaborate? Pulls edit histories from the MediaWiki API, builds a contributor network with **NetworkX** and maps the activity patterns with **Matplotlib**.
+
+`Python` `Pandas` `NetworkX` `Matplotlib` `MediaWiki API`
+
+<a href="https://github.com/Miaoricle/wikipedia-edit-analysis"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🦾 ML for Assistive Technology
+
+<img src="https://img.shields.io/badge/international_workshop_%C2%B7_ITS_Indonesia-CBA6F7?style=flat-square" alt="international workshop · ITS Indonesia" />
+
+A **gesture-controlled wheelchair** prototype: an ESP32 drives the chair while TensorFlow and MediaPipe recognise hand gestures in real time. Built at an international workshop on machine learning for assistive tech at ITS, Indonesia.
+
+`TensorFlow` `MediaPipe` `ESP32` `Python` `HCI`
+
+</td>
+<td width="50%" valign="top">
 
 ### 🌐 RICA Complaint System
-> **Subject:** Internet Programming
 
-A full-stack **PHP/MySQL** web system allowing residents to submit and track complaints online. Gained hands-on experience with online civic platforms and digital participation data analysis.
+<img src="https://img.shields.io/badge/coursework_%C2%B7_internet_programming-89DCEB?style=flat-square" alt="coursework · internet programming" />
 
-`PHP` `MySQL` `HTML` `CSS` `JavaScript` `Web Development`
+A full-stack **PHP/MySQL** web system where residents submit and track complaints online, from the first report to the final resolution.
 
----
+`PHP` `MySQL` `JavaScript` `HTML` `CSS`
 
-### 📊 Wikipedia Edit Pattern Analysis *(Side Project)*
-> **Type:** Computational Social Research
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-Analysed contributor activity and collaboration patterns on Wikipedia using **Python**. Built a social network graph to visualise edit behaviour and explore digital community dynamics.
+### 🎮 Game Vault
 
-`Python` `Pandas` `NetworkX` `Matplotlib` `Social Network Analysis` `Data Viz`
+<img src="https://img.shields.io/badge/coursework_%C2%B7_web_development-F5C2E7?style=flat-square" alt="coursework · web development" />
 
----
+A **C#** desktop app for organising a personal digital game collection, with HTML/CSS views and a focus on clean data structures and interface design.
 
-### 🎮 Game Vault Application
-> **Subject:** Web Development
+`C#` `HTML` `CSS` `Desktop`
 
-A desktop application built with **C#, HTML, and CSS** for organising personal digital game collections. Demonstrates data structuring and interface design principles.
-
-`C#` `HTML` `CSS` `Desktop App` `UI/UX`
-
----
+</td>
+<td width="50%" valign="top">
 
 ### 🧺 Laundry Management System
-> **Subject:** Software Design & Integration
 
-A CLI-based system for managing laundry orders built in **C++** with team collaboration via **GitHub**. Demonstrates workflow optimisation and version-controlled team development.
+<img src="https://img.shields.io/badge/coursework_%C2%B7_software_design_%26_integration-F9E2AF?style=flat-square" alt="coursework · software design & integration" />
 
-`C++` `GitHub` `CLI` `OOP` `Collaborative Dev`
+A command-line **C++** system for managing laundry orders, built as a team with Git and GitHub pull requests.
 
----
+`C++` `OOP` `CLI` `Git` `Teamwork`
 
-### 🦾 ML for Assistive Technology *(Workshop – Indonesia)*
-> **Type:** International Workshop @ ITS, Indonesia
+</td>
+</tr>
+</table>
 
-Built an **ESP32-based** system to control a wheelchair using hand gestures, applying **TensorFlow** and **MediaPipe** for real-time gesture recognition. Explored human-computer interaction and assistive technology research.
+<img src="./profile/divider.svg" width="100%" alt="" />
 
-`TensorFlow` `MediaPipe` `ESP32` `Python` `HCI` `Machine Learning`
-
----
-
-## 📈 GitHub Stats
+## 🤝 Let's connect
+<sub>I reply faster than a cat hears a can opener.</sub>
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Miaoricle&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="180"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Miaoricle&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="180"/>
-
-<br/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Miaoricle&theme=tokyonight&hide_border=true" width="600"/>
+<a href="https://linkedin.com/in/amirnazhan"><img src="https://img.shields.io/badge/LinkedIn-Amir_Nazhan-89B4FA?style=for-the-badge&labelColor=1E1E2E&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjODlCNEZBJyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cmVjdCB4PSczJyB5PSc3LjUnIHdpZHRoPScxOCcgaGVpZ2h0PScxMi41JyByeD0nMi41Jy8%2BPHBhdGggZD0nTTguNSA3LjVWNS41YTIgMiAwIDAgMSAyLTJoM2EyIDIgMCAwIDEgMiAydjJNMyAxM2gxOCcvPjwvc3ZnPg%3D%3D" alt="LinkedIn: Amir Nazhan" /></a>
+<a href="mailto:amirnazhann@gmail.com"><img src="https://img.shields.io/badge/Email-say_hello-F38BA8?style=for-the-badge&labelColor=1E1E2E&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRjM4QkE4JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cmVjdCB4PSczJyB5PSc1JyB3aWR0aD0nMTgnIGhlaWdodD0nMTQnIHJ4PScyLjUnLz48cGF0aCBkPSdtMy41IDcgOC41IDYgOC41LTYnLz48L3N2Zz4%3D" alt="Email: say hello" /></a>
+<a href="https://github.com/Miaoricle"><img src="https://img.shields.io/badge/GitHub-Miaoricle-CDD6F4?style=for-the-badge&labelColor=1E1E2E&logo=github&logoColor=CDD6F4" alt="GitHub: Miaoricle" /></a>
+<a href="https://github.com/Miaoricle/Miaoricle/issues/new?title=%F0%9F%90%9F%20feed-the-cat&body=Just%20press%20%2A%2ACreate%2A%2A%20to%20toss%20Miao%20a%20fish%20%F0%9F%90%9F%0A%0AA%20bot%20will%20say%20thanks%20and%20close%20this%20issue%20within%20a%20minute%20or%20two.%20Each%20visitor%20can%20feed%20Miao%20once%20every%2012%20hours."><img src="https://img.shields.io/badge/Miao-feed_me-F5C2E7?style=for-the-badge&labelColor=1E1E2E&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjRjVDMkU3JyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48cGF0aCBkPSdNMi41IDEyYzIuOC00LjYgOC42LTYgMTMtMi42TDIwLjUgNnYxMmwtNS0zLjRjLTQuNCAzLjQtMTAuMiAyLTEzLTIuNnonLz48Y2lyY2xlIGN4PSc4JyBjeT0nMTEuMicgcj0nLjYnLz48L3N2Zz4%3D" alt="Miao: feed me" /></a>
+<!-- ✏️ Portfolio: replace the link below, then delete this line and the "end portfolio" line.
+<a href="https://your-portfolio.example"><img src="https://img.shields.io/badge/Portfolio-see_my_work-A6E3A1?style=for-the-badge&labelColor=1E1E2E&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nbm9uZScgc3Ryb2tlPScjQTZFM0ExJyBzdHJva2Utd2lkdGg9JzIuMicgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJz48Y2lyY2xlIGN4PScxMicgY3k9JzEyJyByPSc5Jy8%2BPHBhdGggZD0nTTMgMTJoMThNMTIgM2MyLjYgMi42IDMuOCA1LjYgMy44IDlzLTEuMiA2LjQtMy44IDlNMTIgM2MtMi42IDIuNi0zLjggNS42LTMuOCA5czEuMiA2LjQgMy44IDknLz48L3N2Zz4%3D" alt="Portfolio: see my work" /></a>
+end portfolio -->
+<!-- ✏️ Discord: put your numeric user ID in the link (Discord > Settings > Advanced > Developer Mode, then right-click your name > Copy User ID).
+<a href="https://discord.com/users/YOUR_DISCORD_USER_ID"><img src="https://img.shields.io/badge/Discord-your__username-B4BEFE?style=for-the-badge&labelColor=1E1E2E&logo=discord&logoColor=B4BEFE" alt="Discord: your_username" /></a>
+end discord -->
 
 </div>
 
----
-
-## 🏆 Achievements
-
-<div align="center">
-
-| 🎖️ Achievement | 📋 Details |
-|---|---|
-| 🏅 Dean's List | Semester 1, 3 & 4 |
-| 🌏 International Workshop | Machine Learning for Assistive Tech – ITS, Indonesia |
-| 🎓 Strong Academic Record | CGPA 3.61 / Degree · CGPA 3.25 / Diploma |
-
-</div>
-
----
-
-## 📚 Currently Learning
+## 🔮 Ask the Miaoricle
+<sub>A new prophecy every day. Results not guaranteed, but the cat is very confident.</sub>
 
 <div align="center">
 
-| 🔧 Skill | 📊 Progress |
-|---|---|
-| Flutter & Dart (FYP) | ████████░░ 80% |
-| Python Data Analysis | ███████░░░ 70% |
-| Machine Learning Basics | █████░░░░░ 50% |
-| REST APIs & Backend Dev | ██████░░░░ 60% |
+<img src="./profile/oracle.svg" width="900" alt="The Miaoricle's prophecy of the day, from a pixel cat with a crystal ball" />
 
-</div>
+<img src="./profile/footer.svg" width="100%" alt="Thanks for stopping by! A pixel cat sleeps on a closed laptop under the moon." />
 
----
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:58a6ff,100:0d1117&height=120&section=footer" width="100%"/>
-
-*"The best way to predict the future is to create it." — Let's build something meaningful.*
+<sub>Pixel cats and cards are drawn by <a href="./scripts/cat_widgets.py">a little script</a> and GitHub Actions · stats by <a href="https://github.com/stats-organization/github-readme-stats-action">GitHub Readme Stats</a> · typing by <a href="https://github.com/DenverCoder1/readme-typing-svg">readme-typing-svg</a> · palette: <a href="https://catppuccin.com">Catppuccin Mocha</a></sub>
 
 </div>

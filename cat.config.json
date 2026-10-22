@@ -1,0 +1,73 @@
+{
+  "_readme": "Settings for the cat widgets. Edit, commit, and the 'Update profile widgets' workflow re-draws everything. Colours are hex codes.",
+
+  "github_username": "Miaoricle",
+  "name": "Amir Nazhan",
+  "headline": "Software Engineering Student @ UniKL MIIT",
+  "subline": "Freelance web & mobile developer · Kuala Lumpur, MY",
+  "status_pill": "open to internships & freelance",
+  "terminal_title": "miaoricle@kuala-lumpur: ~",
+  "prompt_path": "~/miaoricle",
+  "chips": ["Flutter", "Python", "PHP", "C#", "ML"],
+
+  "timezone": "Asia/Kuala_Lumpur",
+  "timezone_label": "MYT",
+
+  "_theme_help": "Pick one of: mocha (dark, default), macchiato, frappe, latte (light). Override any single colour in theme_overrides, e.g. \"accent\": \"F5C2E7\".",
+  "theme": "mocha",
+  "theme_overrides": {},
+
+  "_cat_help": "Make the cat look like your own cat. 'name' is used on the status card and in feed replies.",
+  "cat": {
+    "name": "Miao",
+    "fur": "FAB387",
+    "stripes": "E08D5C",
+    "belly": "F5E0DC",
+    "inner_ear": "F5C2E7",
+    "nose": "EBA0AC",
+    "eyes": "11111B",
+    "outline": "11111B",
+    "collar": "CBA6F7",
+    "charm": "F9E2AF"
+  },
+
+  "footer": {
+    "title": "Thanks for stopping by!",
+    "subtitle": "Come back soon. The cat will still be here, probably asleep.",
+    "command": "git commit -m \"see you next commit\""
+  },
+
+  "pet": {
+    "title": "*purrrrrr*",
+    "subtitle": "You pet the cat. The cat approves.",
+    "footnote": "+1 happiness   +1 dev morale   -1 bug"
+  },
+
+  "_feed_help": "How long a visitor must wait before feeding the cat again.",
+  "feed": { "cooldown_hours": 12 },
+
+  "_oracle_help": "Add your own sayings to 'quotes'. Set use_builtin_quotes to false to use only yours.",
+  "oracle": {
+    "title": "THE MIAORICLE SAYS",
+    "use_builtin_quotes": true,
+    "quotes": []
+  },
+
+  "_moods_help": "When the status cat changes mood (days since your last contribution, streak length, contributions this week, hours after a feeding).",
+  "moods": {
+    "on_a_roll_streak": 5,
+    "on_a_roll_week": 20,
+    "coding_days": 3,
+    "napping_days": 14,
+    "snack_hours": 3
+  },
+
+  "_cards_help": "Titles and options for the GitHub Readme Stats cards (stats + top languages).",
+  "cards": {
+    "stats_title": "Amir's GitHub Stats",
+    "langs_title": "Most Used Languages",
+    "langs_count": 8,
+    "exclude_repos": ["Miaoricle"],
+    "wakatime_title": "This Week in My Editor"
+  }
+}

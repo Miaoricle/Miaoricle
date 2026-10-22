@@ -1,0 +1,55 @@
+name: 🐟 Feed the cat
+
+# Visitors click "Feed the cat" on the profile, which opens an issue titled "🐟 feed-the-cat".
+# This bumps the fish counter, redraws the status card, replies, and closes the issue.
+# The issue title/body are never executed: only the author's login is used, via an env var.
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  feed:
+    if: contains(github.event.issue.title, 'feed-the-cat')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      - name: Feed the cat
+        env:
+          FEEDER: ${{ github.event.issue.user.login }}
+          BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6; do
+            git fetch --quiet origin "$BRANCH"
+            git reset --quiet --hard "origin/$BRANCH"
+            python3 scripts/cat_widgets.py feed --feeder "$FEEDER" --result "$RUNNER_TEMP/reply.md"
+            git add profile/
+            if git diff --cached --quiet; then break; fi
+            git commit --quiet -m "🐟 Fed by $FEEDER"
+            if git push --quiet origin "HEAD:$BRANCH"; then break; fi
+            echo "Someone else fed the cat at the same moment; retrying ($attempt)."
+            sleep $((RANDOM % 5 + attempt))
+          done
+
+      - name: Reply and close the issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -s "$RUNNER_TEMP/reply.md" ]; then
+            gh issue comment "$ISSUE" --repo "$REPO" --body-file "$RUNNER_TEMP/reply.md"
+          else
+            gh issue comment "$ISSUE" --repo "$REPO" --body "😿 The food bowl got stuck. Please try again in a little while!"
+          fi
+          gh issue close "$ISSUE" --repo "$REPO" --reason completed
+          gh issue lock "$ISSUE" --repo "$REPO" --reason resolved || true

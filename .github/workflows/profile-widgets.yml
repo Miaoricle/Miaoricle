@@ -1,0 +1,94 @@
+name: 🐾 Update profile widgets
+
+# Redraws every card on the profile: GitHub stats, top languages, (optional) WakaTime,
+# and the pixel-cat widgets (status, streak, contribution chase, daily prophecy).
+on:
+  schedule:
+    - cron: "17 */6 * * *" # every 6 hours (times are UTC)
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - cat.config.json
+      - scripts/**
+      - .github/workflows/profile-widgets.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-widgets
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      - name: Read theme colours from cat.config.json
+        id: theme
+        env:
+          WAKATIME_USERNAME: ${{ vars.WAKATIME_USERNAME }}
+        run: python3 scripts/cat_widgets.py card-options
+
+      # If an API call fails, keep yesterday's card instead of committing an error card.
+      - name: GitHub stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
+        with:
+          card: stats
+          options: ${{ steps.theme.outputs.stats }}
+          path: profile/stats.svg
+          token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
+        with:
+          card: top-langs
+          options: ${{ steps.theme.outputs.langs }}
+          path: profile/top-langs.svg
+          token: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: WakaTime card (only if the WAKATIME_USERNAME variable is set)
+        if: ${{ vars.WAKATIME_USERNAME != '' }}
+        uses: stats-organization/github-readme-stats-action@v2
+        continue-on-error: true
+        with:
+          card: wakatime
+          options: ${{ steps.theme.outputs.wakatime }}
+          path: profile/wakatime.svg
+          fail_on_error: true
+
+      - name: Draw the cat widgets
+        env:
+          GITHUB_TOKEN: ${{ secrets.STATS_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python3 scripts/cat_widgets.py update
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          publish () {
+            git add profile/
+            if git diff --cached --quiet; then echo "Nothing changed."; return 0; fi
+            git commit --quiet -m "🐾 Refresh profile widgets"
+            git push --quiet origin "HEAD:$GITHUB_REF_NAME"
+          }
+          for attempt in 1 2 3 4 5; do
+            if publish; then exit 0; fi
+            echo "Push rejected (attempt $attempt): someone fed the cat meanwhile. Redrawing on top of it."
+            rm -rf "$RUNNER_TEMP/fresh" && cp -r profile "$RUNNER_TEMP/fresh"
+            git fetch --quiet origin "$GITHUB_REF_NAME"
+            git reset --quiet --hard "origin/$GITHUB_REF_NAME"
+            # keep everything this run generated, except the feeding log owned by the feed workflow
+            find "$RUNNER_TEMP/fresh" -maxdepth 1 -type f ! -name cat-state.json -exec cp {} profile/ \;
+            python3 scripts/cat_widgets.py render
+            sleep $((attempt * 3))
+          done
+          exit 1
