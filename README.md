@@ -7,12 +7,12 @@
 
 <div align="center">
 
-<img src="./profile/banner.svg" width="100%" alt="Amir Nazhan: Software Engineering student at UniKL MIIT and freelance developer. A pixel cat peeks over a laptop, typing." />
+<img src="./profile/banner.svg" width="100%" alt="Amir Nazhan: Software Engineering student at UniKL MIIT, now a Lab Researcher intern at ITS Surabaya. A pixel cat peeks over a laptop, typing." />
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=CBA6F7&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
-  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
-  <img alt="Typing: Hey there, I'm Amir. Final-year Software Engineering student. Flutter, Python, PHP, C#, C++, JS. Freelance web and mobile developer." src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Freelance+web+%26+mobile+developer;Building+FitAlign%2C+a+Flutter+fitness+app;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=CBA6F7&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Lab+Researcher+intern+%40+ITS+Surabaya;Object+detection+%C2%B7+Deep+learning+%C2%B7+PyTorch;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+  <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Lab+Researcher+intern+%40+ITS+Surabaya;Object+detection+%C2%B7+Deep+learning+%C2%B7+PyTorch;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
+  <img alt="Typing: Hey there, I'm Amir. Lab Researcher intern at ITS Surabaya. Object detection, deep learning, PyTorch. Final-year Software Engineering student." src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=22&duration=2800&pause=1000&color=8839EF&center=true&vCenter=true&width=720&height=50&lines=Hey+there%2C+I%27m+Amir+%F0%9F%91%8B;Lab+Researcher+intern+%40+ITS+Surabaya;Object+detection+%C2%B7+Deep+learning+%C2%B7+PyTorch;Final-year+Software+Engineering+student;Flutter+%C2%B7+Python+%C2%B7+PHP+%C2%B7+C%23+%C2%B7+C%2B%2B+%C2%B7+JS;Powered+by+curiosity%2C+coffee+%26+cat+naps+%F0%9F%90%BE" />
 </picture>
 
 <img src="https://komarev.com/ghpvc/?username=Miaoricle&label=curious+cats+visited&color=CBA6F7&style=for-the-badge" alt="Profile views" />
@@ -24,13 +24,14 @@
 
 <a href="https://github.com/Miaoricle/Miaoricle/issues/new?title=%F0%9F%90%9F%20feed-the-cat&body=Just%20press%20%2A%2ACreate%2A%2A%20to%20toss%20Miao%20a%20fish%20%F0%9F%90%9F%0A%0AA%20bot%20will%20say%20thanks%20and%20close%20this%20issue%20within%20a%20minute%20or%20two.%20Each%20visitor%20can%20feed%20Miao%20once%20every%2012%20hours."><img align="right" width="380" src="./profile/cat-status.svg" alt="Miao the cat's live status: mood, contributions this week, streak and how many fish visitors have fed it" title="This is Miao. Click to feed Miao a fish 🐟" /></a>
 
-- 🎓 Final-year **Software Engineering** student at **UniKL MIIT** · 🏆 Dean's List ×3
-- 🏃 Building **FitAlign**, an all-in-one Flutter fitness app (my final year project)
+- 🔬 **Lab Researcher intern** at Laboratory B201 (Telematics & Intelligent Multimedia), **ITS Surabaya, Indonesia** 🇮🇩
+- 🤖 Researching **object detection with deep learning**: datasets, training and evaluating models in **PyTorch**, real-time optimisation
+- 🎓 Final-year **Software Engineering** student at **UniKL MIIT** · 🏆 Dean's List ×4
+- 🏃 **FitAlign**, my final year project: an all-in-one Flutter fitness app
 - 💼 **Freelance developer**: web & mobile builds for real clients
-- 🤖 Exploring **machine learning & computer vision** (TensorFlow, MediaPipe, Roboflow)
 - 📊 Turning data into stories with **Python**, Pandas and NetworkX
-- 🎯 Goal: grow into a well-rounded software engineer · **open to internships** 🟢
-- 💬 Ask me about **Flutter**, **PHP/MySQL** or **data visualisation**
+- 🎯 Goal: keep growing in **AI, machine learning & computer vision research**
+- 💬 Ask me about **object detection**, **Flutter** or **PHP/MySQL**
 - ⚡ Fun fact: my handle is part cat, part oracle. The Miaoricle answers at the bottom of this page 🔮
 
 <details>
@@ -41,11 +42,14 @@ name        : Amir Nazhan
 university  : Universiti Kuala Lumpur, Malaysian Institute of Information Technology (UniKL MIIT)
 degree      : Bachelor in Software Engineering (2023 – 2027)
 cgpa        : 3.59 (Degree) · 3.25 (Diploma)
-dean_list   : Semester 1, 3 & 4
+dean_list   : 4× · Semesters 1, 3, 4 & final semester
+internship  : Lab Researcher · ITS Surabaya, Indonesia 🇮🇩
+lab         : B201 · Telematics & Intelligent Multimedia
+research    : Object detection with deep learning (Python, PyTorch)
+supervisor  : Dr. Supeno Mardi Susiki Nugroho, ST., MT.
 workshop    : Machine Learning for Assistive Technology · ITS, Indonesia
-based_in    : Kuala Lumpur, Malaysia 🇲🇾
+based_in    : Kuala Lumpur, Malaysia 🇲🇾 · now in Surabaya for my internship
 speaks      : English (fluent) · Bahasa Melayu (fluent)
-status      : open to internships & freelance work 🟢
 cat         : Miao (orange, pixelated, will accept fish)
 ```
 
@@ -81,6 +85,7 @@ cat         : Miao (orange, pixelated, will accept fish)
 <tr>
 <td width="150"><b>🧩 Frameworks & Libraries</b></td>
 <td>
+<img src="https://img.shields.io/badge/PyTorch-1E1E2E?style=for-the-badge&logo=pytorch&logoColor=FAB387" alt="PyTorch" title="PyTorch: object detection research at ITS Surabaya" />
 <img src="https://img.shields.io/badge/Flutter-1E1E2E?style=for-the-badge&logo=flutter&logoColor=FAB387" alt="Flutter" title="Flutter: FitAlign, my final year project" />
 <img src="https://img.shields.io/badge/TensorFlow-1E1E2E?style=for-the-badge&logo=tensorflow&logoColor=FAB387" alt="TensorFlow" title="TensorFlow: gesture recognition (ITS workshop)" />
 <img src="https://img.shields.io/badge/MediaPipe-1E1E2E?style=for-the-badge&logo=mediapipe&logoColor=FAB387" alt="MediaPipe" title="MediaPipe: real-time hand tracking" />
@@ -138,15 +143,30 @@ end WakaTime -->
 </div>
 
 ## 🚀 Featured projects
-<sub>Things I've built (and occasionally knocked off the table).</sub>
+<sub>What I'm researching now, plus things I've built (and occasionally knocked off the table).</sub>
 
 <table>
+<tr>
+<td colspan="2" valign="top">
+
+### 🔬 Object Detection with Deep Learning
+
+<img src="https://img.shields.io/badge/current_internship_%C2%B7_lab_researcher-94E2D5?style=flat-square" alt="current internship · lab researcher" />
+
+**Laboratory B201 (Telematics & Intelligent Multimedia)** · Institut Teknologi Sepuluh Nopember (ITS), Surabaya, Indonesia 🇮🇩 · supervised by Dr. Supeno Mardi Susiki Nugroho, ST., MT.
+
+Teaching machines to identify and locate objects in visual data. I prepare and annotate datasets, train and evaluate deep learning models in **Python** and **PyTorch**, explore different object detection architectures, and investigate how AI-driven models can be optimised for **real-time** detection.
+
+`Python` `PyTorch` `Object Detection` `Computer Vision` `Deep Learning` `Dataset Annotation`
+
+</td>
+</tr>
 <tr>
 <td width="50%" valign="top">
 
 ### 🏃 FitAlign
 
-<img src="https://img.shields.io/badge/final_year_project_%C2%B7_in_progress-FAB387?style=flat-square" alt="final year project · in progress" />
+<img src="https://img.shields.io/badge/final_year_project-FAB387?style=flat-square" alt="final year project" />
 
 An all-in-one fitness companion: **workouts, running, yoga and diet tracking** in a single Flutter app, with GPS run tracking on Google Maps, voice guidance through text-to-speech and Stripe payments. Built around user-behaviour data and digital-experience analytics.
 
