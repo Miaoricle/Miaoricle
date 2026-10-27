@@ -124,8 +124,8 @@ cat         : Miao (orange, pixelated, will accept fish)
 
 <div align="center">
 
-<img src="./profile/stats.svg" height="195" alt="GitHub stats: stars, commits, pull requests, issues and contributions" />
-<img src="./profile/top-langs.svg" height="195" alt="Most used languages" />
+<img src="./profile/stats.svg" width="480" align="top" alt="GitHub stats: stars, commits, pull requests, issues and contributions" />
+<img src="./profile/top-langs.svg" width="320" align="top" alt="Most used languages" />
 
 <img src="./profile/streak.svg" width="820" alt="Contribution streak: total contributions, current streak and longest streak" />
 
