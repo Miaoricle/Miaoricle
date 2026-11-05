@@ -1380,6 +1380,513 @@ def utcnow():
 
 
 # --------------------------------------------------------------------------------------
+# Incident report: a pink T. rex laser-beams the cat (cartoon gag, loops forever)
+# --------------------------------------------------------------------------------------
+TREX_COLORS = {"k": "3B1E36", "p": "F5C2E7", "d": "E39AD0", "l": "FCE4F4", "v": "D17DBA", "e": "11111B",
+               "W": "FFFFFF", "T": "FFFDF5", "c": "F9E2AF", "m": "5B1A45", "t": "F38BA8", "x": "FF3B6B"}
+BURN_COLORS = {"1": "4A4453", "2": "5E576B", "5": "1F4C68", "6": "89DCEB", "I": "F4F1E8", "i": "C9C1AE",
+               "U": "7F849C", "u": "A6ADC8", "w": "45475A"}
+
+
+def trex_rows(mouth="closed", eye="normal"):
+    """Original pink T. rex, side view facing right, 68 x 48."""
+    W, H = 68, 48
+    g = [["."] * W for _ in range(H)]
+
+    def put(x, y, ch):
+        if 0 <= x < W and 0 <= y < H:
+            g[y][x] = ch
+
+    def ellipse_pts(cx, cy, rx, ry):
+        return {(x, y) for y in range(H) for x in range(W)
+                if ((x + .5 - cx) / rx) ** 2 + ((y + .5 - cy) / ry) ** 2 <= 1}
+
+    def rect(x0, y0, x1, y1, ch):
+        for y in range(y0, y1 + 1):
+            for x in range(x0, x1 + 1):
+                put(x, y, ch)
+
+    rect(19, 33, 23, 41, "d")  # far leg
+    rect(17, 41, 27, 43, "d")
+    for x in range(27):  # long tapering tail
+        cy, half = 19.5 - (26 - x) * 0.16, 0.7 + x * 0.21
+        for y in range(H):
+            if abs(y + .5 - cy) <= half:
+                g[y][x] = "p"
+    for (cx, cy, rx, ry) in ((31, 22, 12.5, 9.5), (41.5, 15, 6.8, 7.5), (50, 9.5, 9.5, 6.5)):
+        for (x, y) in ellipse_pts(cx, cy, rx, ry):
+            g[y][x] = "p"
+    rect(50, 4, 62, 12, "p")
+    for (x, y) in ((62, 4), (62, 5), (61, 4)):
+        put(x, y, ".")
+    drop = 4 if mouth == "open" else 0
+    rect(45, 13 + drop, 60, 16 + drop, "p")
+    rect(44, 12, 47, 16 + drop, "p")
+    put(60, 16 + drop, ".")
+    if mouth == "open":
+        rect(48, 13, 61, 16, "m")
+        for x in range(48, 61):
+            put(x, 13 if x % 2 == 0 else 16, "T")
+        rect(52, 15, 57, 16, "t")
+        for x in range(53, 60, 2):
+            put(x, 16, "T")
+    for x in range(23, 47):  # belly band
+        col = [y for y in range(H) if g[y][x] == "p"]
+        if col:
+            for y in (col[-1], col[-1] - 1):
+                g[y][x] = "l"
+    thigh = ellipse_pts(30, 28, 8, 8.5)
+    for (x, y) in thigh:
+        g[y][x] = "p"
+    for (x, y) in thigh:
+        if y < 33 and any((x + dx, y + dy) not in thigh for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+            g[y][x] = "d"
+    rect(28, 33, 32, 41, "p")
+    rect(27, 41, 38, 43, "p")
+    rect(28, 41, 32, 41, "d")
+    for (x, y) in ((41, 22), (42, 22), (42, 23), (43, 23), (43, 24), (44, 24)):  # tiny arms
+        put(x, y, "p")
+    for (x0, y0) in ((9, 16), (14, 15), (19, 14), (24, 13), (29, 13), (34, 14)):  # stripes
+        for i in range(3):
+            if g[y0 + i][x0 + i // 2] == "p":
+                g[y0 + i][x0 + i // 2] = "v"
+    out = [row[:] for row in g]
+    for y in range(H):
+        for x in range(W):
+            if g[y][x] == "." and any(0 <= x + dx < W and 0 <= y + dy < H and g[y + dy][x + dx] != "."
+                                      for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                out[y][x] = "k"
+    g = out
+    if mouth == "closed":
+        for x in range(47, 61):
+            g[13][x] = "k"
+        for x in range(49, 60, 2):
+            g[14][x] = "T"
+    for (x, y) in ((39, 42), (39, 43), (36, 44), (37, 44), (44, 25), (45, 25)):
+        g[y][x] = "c"
+    for x in range(51, 56):
+        g[6][x] = "k"
+    eye_px = (((53, 7, "W"), (54, 7, "e"), (53, 8, "e"), (54, 8, "e")) if eye == "normal" else
+              ((52, 7, "x"), (53, 7, "W"), (54, 7, "W"), (55, 7, "x"), (53, 8, "x"), (54, 8, "x")))
+    for (x, y, ch) in eye_px:
+        g[y][x] = ch
+    g[6][60] = "k"
+    return ["".join(r) for r in g]
+
+
+SKEL_HALF = [
+    "..............", "..............", "..............", "..............", "..............",
+    "..............", "......IIIIIIII", "....IIIIIIIIII", "...IIIIIIIIIII", "..IIIIIIIIIIII",
+    "..IIKKKKIIIIII", "..IKKKKKKIIIII", "..IKKKKKKIIIII", "..IIKKKKIIIIII", "...IIIIIIIIIIK",
+    "....IIIIIIIIII", ".....IKIKIKIKI", "......IIIIIIII", ".............I", ".....IIIIIIIII",
+    "........II...I", "........II.III", "........II...I", "..i.....II.III", ".iIi....II...I",
+    ".iIi....II.III", ".iIi....II...I", ".iIi....II..II", "..i....IIII...", "........I.I...",
+    "..............",
+]
+SKEL_TAIL = ["..........", ".....I....", "..........", "....I.....", "..........", "....I.....",
+             "..........", ".....I....", "..I.......", "I.........", ".........."]
+ASH_PILE = ["............uUUu..............", "..........uUUUUUUu............",
+            "........uUUUwUUUUUUu..........", "......uUUUUUUUUUwUUUUu........",
+            ".....UUUwUUUUUUUUUUUUUUu......", "...uUUUUUUUUUwUUUUUUwUUUUu....",
+            "..UUUUUwUUUUUUUUUUUUUUUUUUUu..", ".UUUUUUUUUUUUUwUUUUUUUUUwUUUU.",
+            "wwwwwwwwwwwwwwwwwwwwwwwwwwwwww"]
+EXCLAIM = [".KKK.", ".KaK.", ".KaK.", ".KaK.", ".KKK.", ".KaK.", ".KKK."]
+_FUR = "OoCcPNEWeZ"
+
+
+def _remap(rows, table):
+    return ["".join(table.get(ch, ch) for ch in r) for r in rows]
+
+
+def _set_eyes(rows, pat):
+    rows = [list(r) for r in rows]
+    for dy, line in enumerate(pat):
+        for dx, ch in enumerate(line):
+            rows[10 + dy][4 + dx] = ch
+            rows[10 + dy][22 + dx] = ch
+    return ["".join(r) for r in rows]
+
+
+def skeleton_rows():
+    return overlay(overlay(blank(34, 36), mirror(SKEL_HALF)), SKEL_TAIL, 26, 20)
+
+
+def xray_rows():
+    rows = _remap(sit_pose("open", 1), dict({ch: "5" for ch in _FUR + "GY"}, K="6"))
+    return overlay(rows, [r.replace("K", "5") for r in skeleton_rows()])
+
+
+def shocked_rows():
+    rows = [list(r) for r in _set_eyes(sit_pose("open", 1), ["WW", "We", "WW"])]
+    rows[16][13] = rows[16][14] = "K"
+    return ["".join(r) for r in rows]
+
+
+def charred_rows(eyes="open", collar=True):
+    rows = [list(r) for r in _remap(sit_pose("open", 1), {ch: "1" for ch in _FUR})]
+    for (x, y) in ((6, 8), (20, 7), (9, 21), (19, 23), (5, 25), (23, 26), (12, 7), (16, 7)):
+        if rows[y][x] == "1":
+            rows[y][x] = "2"
+    for (x, y) in ((10, 4), (11, 3), (12, 4), (13, 3), (14, 3), (15, 4), (16, 3), (17, 4),
+                   (0, 9), (27, 9), (0, 13), (27, 13), (0, 15), (27, 15)):
+        rows[y][x] = "K"  # frazzled fur
+    if not collar:
+        rows = [[("1" if ch in "GY" else ch) for ch in r] for r in rows]
+    rows = ["".join(r) for r in rows]
+    return _set_eyes(rows, {"open": ["WW", "We", "WW"], "blink": ["11", "KK", "11"]}[eyes])
+
+
+class Timeline:
+    """Keyframe helper: every animation shares one period so the whole scene stays in sync.
+    Each element's static style is its state at `still`, which is what visitors who
+    prefer reduced motion see."""
+
+    def __init__(self, period, still, prefix):
+        self.P, self.still, self.prefix, self.n, self.css = period, still, prefix, 0, []
+
+    def _pct(self, t):
+        return f"{max(0.0, min(100.0, t / self.P * 100)):.3f}%"
+
+    def anim(self, points, timing="linear", base=None):
+        """points: [(seconds, {css-prop: value})]; returns a class name."""
+        pts = {}
+        for t, v in sorted(points, key=lambda p: p[0]):
+            pts[round(t, 3)] = v
+        keys = sorted(pts)
+        if keys[0] > 0:
+            pts[0.0] = pts[keys[0]]
+        if keys[-1] < self.P:
+            pts[float(self.P)] = pts[keys[-1]]
+        keys = sorted(pts)
+        if base is None:
+            base = pts[max(k for k in keys if k <= self.still)]
+        self.n += 1
+        name = f"{self.prefix}{self.n}"
+        decl = lambda d: ";".join(f"{k}:{v}" for k, v in d.items())
+        frames = "".join(f"{self._pct(k)}{{{decl(pts[k])}}}" for k in keys)
+        self.css.append(f"@keyframes {name}{{{frames}}}.{name}{{{decl(base)};"
+                        f"animation:{name} {f2(self.P)}s {timing} infinite}}")
+        return name
+
+    def show(self, ranges, base=None):
+        """Visible only inside the given [start, end) windows (seconds)."""
+        pts = [(0, {"opacity": 1 if any(a <= 0 < b for a, b in ranges) else 0})]
+        for a, b in ranges:
+            pts += [(a, {"opacity": 1}), (b, {"opacity": 0})]
+        return self.anim(pts, "step-end", None if base is None else {"opacity": base})
+
+    def group(self, cls, inner, extra=""):
+        return f'<g class="{cls}"{extra}>{inner}</g>'
+
+
+def render_incident(cfg, t, C):
+    W, H, GY = 1000, 340, 300
+    P, STILL = 14.0, 4.6
+    # key moments (seconds into the loop)
+    ALERT, CHARGE, BEAM, XRAY, CHAR = 2.0, 2.4, 3.6, 3.75, 5.8
+    CRUMBLE, LIFE, JAW, BUBBLE, REVERT, POOF, RESPAWN = 8.0, 9.2, 9.5, 9.7, 10.5, 11.5, 11.75
+    tl = Timeline(P, STILL, "iz")
+    CC = dict(C)
+    CC.update(BURN_COLORS)
+    css = [PULSE_CSS]
+    rnd = random.Random(11)
+
+    # ---- geometry
+    KS, KX = 4.2, 26
+    KY = GY - 45 * KS
+    eye = (KX + 54 * KS, KY + 7.6 * KS)
+    CS, CX = 3.6, 764
+    CY = GY - 31 * CS
+    target = (CX + 14 * CS, CY + 21 * CS)
+
+    defs = (f'<clipPath id="izClip"><rect x="2" y="2" width="{W - 4}" height="{H - 4}" rx="20"/></clipPath>'
+            f'<radialGradient id="izGlow"><stop offset="0" stop-color="#FFFFFF"/>'
+            f'<stop offset=".35" stop-color="#FF8AC8"/><stop offset="1" stop-color="#FF3B6B" stop-opacity="0"/>'
+            f'</radialGradient>'
+            f'<linearGradient id="izSky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#{t["base"]}"/>'
+            f'<stop offset="1" stop-color="#{mix(t["base"], t["pink"], .10)}"/></linearGradient>')
+    b = [card(W, H, t, 22), f'<g clip-path="url(#izClip)"><rect width="{W}" height="{H}" fill="url(#izSky)"/>']
+
+    # red alert wash during the beam
+    b.append(f'<rect class="{tl.anim([(0, {"opacity": 0}), (BEAM, {"opacity": 0}), (BEAM + .05, {"opacity": .22}), (BEAM + .25, {"opacity": .08}), (CHAR - .3, {"opacity": .12}), (CHAR, {"opacity": 0})])}" '
+             f'width="{W}" height="{H}" fill="#{t["red"]}"/>')
+    # white flash the moment the laser fires
+    b.append(f'<rect class="{tl.anim([(0, {"opacity": 0}), (BEAM - .01, {"opacity": 0}), (BEAM, {"opacity": .6}), (BEAM + .14, {"opacity": 0})])}" '
+             f'width="{W}" height="{H}" fill="#FFFFFF"/>')
+    # tiny city in the background (so everyone looks enormous)
+    city = []
+    x = 330
+    while x < 740:
+        bw, bh = rnd.randint(16, 30), rnd.randint(18, 52)
+        city.append(f'<rect x="{x}" y="{GY - bh}" width="{bw}" height="{bh}" fill="#{t["surface0"]}"/>')
+        for wy in range(GY - bh + 5, GY - 6, 8):
+            for wx in range(x + 4, x + bw - 4, 7):
+                if rnd.random() < .45:
+                    city.append(f'<rect x="{wx}" y="{wy}" width="3" height="3" fill="#{t["yellow"]}" opacity=".45"/>')
+        x += bw + rnd.randint(2, 8)
+    b.append(f'<g opacity=".8">{"".join(city)}</g>')
+    b.append(f'<rect x="0" y="{GY}" width="{W}" height="{H - GY}" fill="#{t["mantle"]}"/>'
+             f'<line x1="0" y1="{GY}" x2="{W}" y2="{GY}" stroke="#{t["surface1"]}" stroke-width="2"/>')
+
+    # ---- everything that shakes when the laser fires
+    shake = [(0, {"transform": "translate(0px,0px)"}), (BEAM, {"transform": "translate(0px,0px)"})]
+    tt = BEAM + .04
+    while tt < CHAR:
+        shake.append((tt, {"transform": f"translate({rnd.uniform(-5, 5):.1f}px,{rnd.uniform(-4, 4):.1f}px)"}))
+        tt += .05
+    shake.append((CHAR + .05, {"transform": "translate(0px,0px)"}))
+    stage = []
+
+    # T. rex: idle bob, rears back to charge, recoils while firing, does a happy stomp afterwards
+    rex_move = [(0, (0, 0)), (CHARGE, (0, 0)), (CHARGE + .5, (-10, -6)), (BEAM - .05, (-10, -6)), (BEAM + .06, (8, 2))]
+    tt = BEAM + .12
+    while tt < CHAR:
+        rex_move.append((tt, (rnd.uniform(3, 7), rnd.uniform(0, 2.5))))
+        tt += .07
+    rex_move += [(CHAR + .25, (0, 0)), (6.3, (0, -9)), (6.5, (0, 0)), (6.75, (0, -9)), (6.95, (0, 0)), (7.2, (0, -6)),
+                 (7.4, (0, 0))]
+    rex_cls = tl.anim([(a, {"transform": f"translate({x:.1f}px,{y:.1f}px)"}) for a, (x, y) in rex_move])
+    rex = []
+    rex.append(f'<ellipse cx="{KX + 30 * KS}" cy="{GY + 2}" rx="125" ry="7" fill="#{t["crust"]}" opacity=".55"/>')
+    calm, roar = trex_rows("closed"), trex_rows("open", "laser")
+    rex.append(tl.group(tl.show([(0, CHARGE), (CHAR + .25, P)]), sprite(calm, TREX_COLORS, KX, KY, KS)))
+    rex.append(tl.group(tl.show([(CHARGE, CHAR + .25)]), sprite(roar, TREX_COLORS, KX, KY, KS)))
+    # eye charging glow
+    eg = tl.show([(CHARGE, CHAR)])
+    rex.append(f'<g class="{eg}"><circle class="izeye" cx="{f2(eye[0])}" cy="{f2(eye[1])}" r="16" fill="url(#izGlow)"/></g>')
+    css.append(".izeye{transform-box:fill-box;transform-origin:center;animation:izeye .18s ease-in-out infinite alternate}"
+               "@keyframes izeye{from{transform:scale(.7);opacity:.7}to{transform:scale(1.35);opacity:1}}")
+    # "!" over the rex when it sees the force-push
+    rex.append(tl.group(tl.show([(ALERT, CHARGE + .4)]), sprite(EXCLAIM, CC, KX + 44 * KS, KY - 30, 3.4)))
+    # "hehe" after the deed
+    rex.append(tl.group(tl.show([(CHAR + .3, CRUMBLE + .4)]),
+                        text(KX + 50 * KS, KY - 12, "hehe", 20, t["pink"], 800, extra=' font-style="italic"')))
+    # charging sparks sucked into the eye
+    sparks = []
+    for i in range(8):
+        ang = i / 8 * 2 * math.pi
+        dx, dy = math.cos(ang) * 46, math.sin(ang) * 40
+        sparks.append(f'<rect class="izsp" x="{f2(eye[0] - 2)}" y="{f2(eye[1] - 2)}" width="4" height="4" '
+                      f'fill="#{t["pink"] if i % 2 else "FFFFFF"}" style="--dx:{dx:.0f}px;--dy:{dy:.0f}px;'
+                      f'animation-delay:-{i * .07:.2f}s"/>')
+    css.append(".izsp{animation:izsp .55s ease-in infinite}"
+               "@keyframes izsp{0%{transform:translate(var(--dx),var(--dy));opacity:0}"
+               "30%{opacity:1}100%{transform:translate(0,0);opacity:0}}")
+    rex.append(tl.group(tl.show([(CHARGE + .2, BEAM)]), "".join(sparks)))
+
+    # ---- the laser: two fat beams from the rex's eye to the cat
+    ang = math.degrees(math.atan2(target[1] - eye[1], target[0] - eye[0]))
+    L = math.hypot(target[0] - eye[0], target[1] - eye[1])
+    grow = tl.anim([(0, {"transform": "scaleX(0)"}), (BEAM, {"transform": "scaleX(0)"}),
+                    (BEAM + .14, {"transform": "scaleX(1)"}), (CHAR - .01, {"transform": "scaleX(1)"}),
+                    (CHAR, {"transform": "scaleX(0)"})], base={"transform": "scaleX(1)"})
+    beams = []
+    for k, (off, th) in enumerate(((-7, 1.0), (7, .8))):
+        a2 = ang + off * .12
+        beams.append(
+            f'<g transform="translate({f2(eye[0])} {f2(eye[1] + off * .3)}) rotate({a2:.2f})">'
+            f'<g class="{grow}" style="transform-origin:0px 0px">'
+            f'<g class="izwob" style="animation-delay:-{k * .05:.2f}s">'
+            f'<rect x="0" y="{f2(-17 * th)}" width="{f2(L + 10)}" height="{f2(34 * th)}" rx="{f2(17 * th)}" fill="#FF3B6B" opacity=".28"/>'
+            f'<rect x="0" y="{f2(-11 * th)}" width="{f2(L + 6)}" height="{f2(22 * th)}" rx="{f2(11 * th)}" fill="#FF6FAE" opacity=".85"/>'
+            f'<rect x="0" y="{f2(-6 * th)}" width="{f2(L + 2)}" height="{f2(12 * th)}" rx="{f2(6 * th)}" fill="#{t["pink"]}"/>'
+            f'<rect x="0" y="{f2(-2.5 * th)}" width="{f2(L)}" height="{f2(5 * th)}" rx="2.5" fill="#FFFFFF"/>'
+            + "".join(f'<rect class="izpt" x="0" y="{f2(rnd.uniform(-8, 8) * th)}" width="14" height="3" fill="#FFFFFF" '
+                      f'style="--L:{L:.0f}px;animation-delay:-{rnd.uniform(0, .3):.2f}s"/>' for _ in range(6))
+            + '</g></g></g>')
+    css.append(".izwob{transform-box:fill-box;transform-origin:0 50%;animation:izwob .06s linear infinite alternate}"
+               "@keyframes izwob{from{transform:scaleY(.8)}to{transform:scaleY(1.2)}}"
+               ".izpt{animation:izpt .3s linear infinite}@keyframes izpt{from{transform:translateX(0)}"
+               "to{transform:translateX(var(--L))}}")
+    beam_vis = tl.show([(BEAM, CHAR)], base=1)
+    rex.append(f'<g class="{beam_vis}">{"".join(beams)}'
+               f'<circle class="izeye" cx="{f2(eye[0])}" cy="{f2(eye[1])}" r="22" fill="url(#izGlow)"/></g>')
+    stage.append(f'<g class="{rex_cls}">{"".join(rex)}</g>')
+    # ---- the cat
+    cat = []
+    cat.append(f'<ellipse cx="{CX + 14 * CS}" cy="{GY + 2}" rx="48" ry="5" fill="#{t["crust"]}" opacity=".55"/>')
+    normal = []
+    body = sit_pose("open", None)
+    normal.append(sprite(body, CC, CX, CY, CS))
+    for i in range(3):
+        normal.append(sprite(overlay(blank(34, 36), TAILS[i], 26, 20), CC, CX, CY, CS, f"izt{i}"))
+    css.append(cycle_css("izt", 3, 2.0, [0, 1, 2, 1]))
+    normal.append(sprite(diff(body, sit_pose("blink", None)), CC, CX, CY, CS, "izbl"))
+    css.append(blink_css("izbl", 4.4))
+    normal.append(tl.group(tl.show([(CHARGE, CHAR)]), sprite(diff(sit_pose("open", 1), shocked_rows()), CC, CX, CY, CS)))
+    respawn = tl.anim([(0, {"transform": "scale(1)"}), (CHAR + .1, {"transform": "scale(1)"}),
+                       (CHAR + .2, {"transform": "scale(.2)"}), (RESPAWN, {"transform": "scale(.2)"}),
+                       (RESPAWN + .22, {"transform": "scale(1.15)"}), (RESPAWN + .38, {"transform": "scale(1)"})])
+    cat.append(tl.group(tl.show([(0, CHAR), (RESPAWN, P)]),
+                        f'<g class="{respawn}" style="transform-box:fill-box;transform-origin:50% 100%">'
+                        f'{"".join(normal)}</g>'))
+    cat.append(tl.group(tl.show([(CHARGE, BEAM)]), sprite(EXCLAIM, CC, CX + 12 * CS, CY - 34, 3.2)))
+    # X-ray flicker while being zapped
+    flick, tt, on = [], XRAY, True
+    while tt < CHAR:
+        if on:
+            flick.append((tt, min(CHAR, tt + .08)))
+        tt += .08
+        on = not on
+    cat.append(tl.group(tl.show(flick, base=1), sprite(xray_rows(), CC, CX, CY, CS)))
+    # skeleton (revealed when the ash falls away) with a jaw drop
+    skel = skeleton_rows()
+    jaw = [r if 16 <= i <= 17 else "." * len(r) for i, r in enumerate(skel)]
+    skull_rest = [("." * len(r) if 16 <= i <= 17 else r) for i, r in enumerate(skel)]
+    jaw_cls = tl.anim([(0, {"transform": "translateY(0px)"}), (JAW, {"transform": "translateY(0px)"}),
+                       (JAW + .12, {"transform": f"translateY({f2(2 * CS)}px)"})])
+    cat.append(tl.group(tl.show([(CRUMBLE, POOF + .25)]),
+                        sprite(skull_rest, CC, CX, CY, CS) +
+                        tl.group(jaw_cls, sprite(jaw, CC, CX, CY, CS))))
+    # charred cat, split into strips that crumble away from the top down
+    burnt = charred_rows("open", collar=False)
+    strip_h = 3
+    fall_end = CRUMBLE
+    for i, r0 in enumerate(range(0, 31, strip_h)):
+        rows = [r if r0 <= j < r0 + strip_h else "." * len(r) for j, r in enumerate(burnt)]
+        if not any(ch != "." for r in rows for ch in r):
+            continue
+        start = CRUMBLE + i * .09
+        drop = (31 - r0) * CS * .9
+        fall = tl.anim([(0, {"transform": "translateY(0px)"}), (start, {"transform": "translateY(0px)"}),
+                        (start + .4, {"transform": f"translateY({f2(drop)}px)"})], "ease-in")
+        fall_end = max(fall_end, start + .4)
+        cat.append(tl.group(tl.show([(CHAR, start + .4)]), tl.group(fall, sprite(rows, CC, CX, CY, CS))))
+    # blinking white eyes on the charred cat, then a cough
+    cat.append(tl.group(tl.show([(6.55, 6.7), (6.95, 7.1)]),
+                        sprite(diff(charred_rows("open"), charred_rows("blink")), CC, CX, CY, CS)))
+    embers = []
+    for i in range(7):
+        ex, ey = rnd.randint(3, 24), rnd.randint(7, 28)
+        if burnt[ey][ex] in "12":
+            embers.append(f'<rect class="izem" x="{f2(CX + ex * CS)}" y="{f2(CY + ey * CS)}" width="{f2(CS)}" '
+                          f'height="{f2(CS)}" fill="#{t["peach"]}" style="animation-delay:-{i * .13:.2f}s"/>')
+    css.append(".izem{animation:izem .7s ease-in-out infinite alternate}@keyframes izem{from{opacity:.15}to{opacity:1}}")
+    cat.append(tl.group(tl.show([(CHAR, CRUMBLE)]), "".join(embers)))
+    # the collar survives and drops onto the ash pile
+    collar = [("".join(ch if ch in "GY" else "." for ch in r)) for r in sit_pose("open", 1)]
+    collar_fall = tl.anim([(0, {"transform": "translateY(0px)"}), (CRUMBLE + .55, {"transform": "translateY(0px)"}),
+                           (CRUMBLE + .9, {"transform": f"translateY({f2(5 * CS)}px)"})], "ease-in")
+    # ash pile grows as the strips land
+    ash = tl.anim([(0, {"transform": "scaleY(0)"}), (CRUMBLE + .15, {"transform": "scaleY(0)"}),
+                   (fall_end, {"transform": "scaleY(1)"})], base={"transform": "scaleY(1)"})
+    cat.append(tl.group(tl.show([(CRUMBLE, POOF + .25)]),
+                        f'<g class="{ash}" style="transform-box:fill-box;transform-origin:50% 100%">'
+                        f'{sprite(ASH_PILE, CC, CX - 1 * CS, CY + 22 * CS, CS)}</g>'))
+    cat.append(tl.group(tl.show([(CHAR, POOF + .25)]), tl.group(collar_fall, sprite(collar, CC, CX, CY, CS))))
+    stage.append("".join(cat))
+
+    # impact: flash + flying sparks
+    imp = [f'<circle class="izimp" cx="{f2(target[0])}" cy="{f2(target[1])}" r="30" fill="url(#izGlow)" opacity=".85"/>']
+    for i in range(10):
+        a = rnd.uniform(0, 2 * math.pi)
+        d = rnd.uniform(40, 80)
+        imp.append(f'<rect class="izfly" x="{f2(target[0] - 2)}" y="{f2(target[1] - 2)}" width="5" height="5" '
+                   f'fill="#{t["yellow"] if i % 2 else "FFFFFF"}" style="--dx:{math.cos(a) * d:.0f}px;'
+                   f'--dy:{math.sin(a) * d:.0f}px;animation-delay:-{rnd.uniform(0, .4):.2f}s"/>')
+    css.append(".izimp{transform-box:fill-box;transform-origin:center;animation:izimp .09s linear infinite alternate}"
+               "@keyframes izimp{from{transform:scale(.75)}to{transform:scale(1.3)}}"
+               ".izfly{animation:izfly .4s ease-out infinite}@keyframes izfly{from{transform:translate(0,0);opacity:1}"
+               "to{transform:translate(var(--dx),var(--dy));opacity:0}}")
+    stage.append(tl.group(tl.show([(BEAM + .12, CHAR)], base=1), "".join(imp)))
+    b.append(f'<g class="{tl.anim(shake)}">{"".join(stage)}</g>')
+
+    # ---- smoke, cough, comic text, speech bubble, poof
+    smoke = []
+    for i, (sx, sy) in enumerate(((CX + 6 * CS, CY + 2 * CS), (CX + 21 * CS, CY + 2 * CS), (CX + 14 * CS, CY))):
+        for j in range(2):
+            smoke.append(f'<circle class="izsm" cx="{f2(sx)}" cy="{f2(sy)}" r="7" fill="#{t["overlay1"]}" '
+                         f'style="animation-delay:-{(i * .4 + j * .7):.2f}s"/>')
+    css.append(".izsm{transform-box:fill-box;transform-origin:center;animation:izsm 1.4s ease-out infinite}"
+               "@keyframes izsm{0%{transform:translate(0,0) scale(.4);opacity:.85}"
+               "100%{transform:translate(-10px,-48px) scale(2.2);opacity:0}}")
+    b.append(tl.group(tl.show([(CHAR, fall_end + .6)]), "".join(smoke)))
+    b.append(tl.group(tl.show([(7.3, 7.95)]),
+                      f'<circle class="izsm" cx="{f2(CX + 14 * CS)}" cy="{f2(CY + 16 * CS)}" r="6" fill="#{t["overlay2"]}"/>'
+                      + text(CX - 10, CY + 40, "*cough*", 17, t["subtext0"], 700, extra=' font-style="italic"', anchor="end")))
+    zap = tl.anim([(0, {"transform": "scale(0)"}), (BEAM + .1, {"transform": "scale(0)"}),
+                   (BEAM + .3, {"transform": "scale(1.25)"}), (BEAM + .45, {"transform": "scale(1)"}),
+                   (CHAR - .01, {"transform": "scale(1)"}), (CHAR, {"transform": "scale(0)"})],
+                  base={"transform": "scale(1)"})
+    b.append(f'<g class="{zap}" style="transform-box:fill-box;transform-origin:center">'
+             f'<g class="izjit"><text x="{f2(CX + 14 * CS)}" y="{CY - 30}" font-family="{SANS}" font-size="38" font-weight="900" '
+             f'fill="#{t["yellow"]}" stroke="#{t["crust"]}" stroke-width="7" paint-order="stroke" text-anchor="middle" '
+             f'transform="rotate(-8 {f2(CX + 14 * CS)} {CY - 30})">BZZZZZT!</text></g></g>')
+    css.append(".izjit{animation:izjit .08s steps(2) infinite}@keyframes izjit{from{transform:translate(-2px,1px)}"
+               "to{transform:translate(2px,-1px)}}")
+    bx, by = CX + 25 * CS + 6, CY - 6
+    b.append(tl.group(tl.show([(BUBBLE, POOF)]),
+                      f'<rect x="{bx}" y="{by}" width="92" height="32" rx="10" fill="#{t["text"]}"/>'
+                      f'<path d="M{bx + 10} {by + 32} l-14 10 l22 -10z" fill="#{t["text"]}"/>'
+                      + text(bx + 46, by + 21.5, "meow?", 16, t["crust"], 800, MONO, "middle")))
+    poof = []
+    for i, (dx, dy, r) in enumerate(((0, 0, 34), (-30, 10, 24), (30, 8, 26), (-16, -24, 22), (18, -22, 24), (0, 30, 22))):
+        poof.append(f'<circle cx="{f2(CX + 14 * CS + dx)}" cy="{f2(CY + 16 * CS + dy)}" r="{r}" '
+                    f'fill="#{t["text"] if i % 2 == 0 else t["subtext0"]}"/>')
+    poof_anim = tl.anim([(0, {"transform": "scale(.2)", "opacity": 0}), (POOF, {"transform": "scale(.2)", "opacity": 0}),
+                         (POOF + .2, {"transform": "scale(1.1)", "opacity": 1}),
+                         (POOF + .55, {"transform": "scale(1.25)", "opacity": .9}),
+                         (POOF + .9, {"transform": "scale(1.4)", "opacity": 0})])
+    b.append(f'<g class="{poof_anim}" style="transform-box:fill-box;transform-origin:center">{"".join(poof)}</g>')
+
+    # ---- top bar: terminal captions and status pill
+    def caption(x, y, parts, cls):
+        spans = "".join(f'<tspan fill="#{c}">{esc(s)}</tspan>' for s, c in parts)
+        return f'<text class="{cls}" x="{x}" y="{y}" font-family="{MONO}" font-size="15" font-weight="600">{spans}</text>'
+
+    cap_y = 44
+    push_cmd = "git push --force origin main"
+    cover = tl.anim([(0, {"transform": "scaleX(1)"}), (.35, {"transform": "scaleX(1)"}),
+                     (1.6, {"transform": "scaleX(0)"})], f"steps({len(push_cmd)},end)", base={"transform": "scaleX(0)"})
+    b.append(tl.group(tl.show([(0, ALERT)]),
+                      caption(28, cap_y, [("$ ", t["green"]), (push_cmd, t["text"])], "") +
+                      f'<rect class="{cover}" x="{28 + 2 * 9 - 1}" y="{cap_y - 15}" width="{len(push_cmd) * 9 + 4}" '
+                      f'height="21" fill="#{t["base"]}" style="transform-box:fill-box;transform-origin:100% 50%"/>' +
+                      tl.group(tl.show([(1.7, ALERT)]), text(28 + (len(push_cmd) + 4) * 9, cap_y, "# friday, 5:59 pm", 15,
+                                                             t["overlay1"], 500, MONO))))
+    b.append(tl.group(tl.show([(ALERT, CHAR)], base=1),
+                      caption(28, cap_y, [("remote: ", t["overlay1"]), ("force-push detected. releasing the T. rex...", t["red"])], "")))
+    b.append(tl.group(tl.show([(CHAR, LIFE)]),
+                      caption(28, cap_y, [("error: ", t["red"]), ("cat.exe has stopped responding", t["peach"])], "")))
+    b.append(tl.group(tl.show([(LIFE, REVERT)]),
+                      caption(28, cap_y, [("warning: ", t["yellow"]), ("cat lost 1 of 9 lives", t["text"])], "")))
+    rev_cmd = "git revert HEAD"
+    cover2 = tl.anim([(0, {"transform": "scaleX(1)"}), (REVERT + .2, {"transform": "scaleX(1)"}),
+                      (REVERT + .9, {"transform": "scaleX(0)"})], f"steps({len(rev_cmd)},end)", base={"transform": "scaleX(0)"})
+    b.append(tl.group(tl.show([(REVERT, P)]),
+                      caption(28, cap_y, [("$ ", t["green"]), (rev_cmd, t["text"])], "") +
+                      f'<rect class="{cover2}" x="{28 + 2 * 9 - 1}" y="{cap_y - 15}" width="{len(rev_cmd) * 9 + 4}" '
+                      f'height="21" fill="#{t["base"]}" style="transform-box:fill-box;transform-origin:100% 50%"/>' +
+                      tl.group(tl.show([(RESPAWN + .3, P)]),
+                               text(28 + (len(rev_cmd) + 4) * 9, cap_y, "-> cat restored from backup", 15, t["green"], 600, MONO))))
+    calm_pill, w1 = pill(0, 0, "prod · friday 17:59", t["overlay1"], t, 11.5, "izpulse0")
+    alert_pill, w2 = pill(0, 0, "T. REX ALERT", t["red"], t, 11.5, "pulse")
+    b.append(tl.group(tl.show([(0, ALERT), (CHAR + .6, P)]), f'<g transform="translate({f2(W - 24 - w1)} 24)">{calm_pill}</g>'))
+    b.append(tl.group(tl.show([(ALERT, CHAR + .6)], base=1), f'<g transform="translate({f2(W - 24 - w2)} 24)">{alert_pill}</g>'))
+
+    # ---- bottom bar: nine lives, and the lesson
+    hearts = []
+    for i in range(9):
+        hearts.append(sprite(HEART, CC, 92 + i * 14, GY + 17, 1.5))
+    lost = dict(CC, H=t["surface2"])
+    hearts.append(tl.group(tl.show([(LIFE, RESPAWN)]), sprite(HEART, lost, 92 + 8 * 14, GY + 17, 1.5)))
+    minus = tl.anim([(0, {"transform": "translateY(0px)", "opacity": 0}),
+                     (LIFE - .01, {"transform": "translateY(0px)", "opacity": 0}),
+                     (LIFE, {"transform": "translateY(0px)", "opacity": 1}),
+                     (LIFE + 1.0, {"transform": "translateY(-14px)", "opacity": 0})])
+    hearts.append(f'<g class="{minus}">' + text(92 + 8 * 14 + 14, GY + 22, "-1", 13, t["red"], 800, MONO) + '</g>')
+    b.append(text(28, GY + 27, "LIVES", 11, t["overlay1"], 700, MONO, extra=' letter-spacing="1.5"') + "".join(hearts))
+    b.append(text(W - 26, GY + 27, "lesson: never force-push to main on a Friday", 12.5, t["overlay1"], 600, MONO, "end"))
+    b.append("</g>")
+    css.append(".izpulse0{display:none}")
+    css.extend(tl.css)
+    return svg_doc(W, H, "".join(b), "".join(css), "Incident report: force-push on a Friday",
+                   "A pink T. rex fires laser beams from its eyes at the pixel cat after a force-push. The cat flashes "
+                   "into an X-ray skeleton, turns to charcoal, crumbles into ash leaving its skeleton, then git revert "
+                   "brings it back with one of its nine lives used up.", defs)
+
+
+# --------------------------------------------------------------------------------------
 # Rendering entry points
 # --------------------------------------------------------------------------------------
 def render_static(cfg, out):
@@ -1388,6 +1895,7 @@ def render_static(cfg, out):
     write_text(out / "divider.svg", render_divider(cfg, t, C))
     write_text(out / "footer.svg", render_footer(cfg, t, C))
     write_text(out / "pet.svg", render_pet(cfg, t, C))
+    write_text(out / "incident.svg", render_incident(cfg, t, C))
     for kind in ("stats", "top-langs"):
         if not (out / f"{kind}.svg").exists():
             write_text(out / f"{kind}.svg", render_placeholder(kind, t, C))
