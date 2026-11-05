@@ -27,6 +27,7 @@
 - 🔬 **Lab Researcher intern** at Laboratory B201 (Telematics & Intelligent Multimedia), **ITS Surabaya, Indonesia** 🇮🇩
 - 🤖 Researching **object detection with deep learning**: datasets, training and evaluating models in **PyTorch**, real-time optimisation
 - 🎓 Final-year **Software Engineering** student at **UniKL MIIT** · 🏆 Dean's List ×4
+- 🚁 Co-author of a paper on **real-time hand gesture recognition for UAV control** (LSTM), presenting it this November
 - 🏃 **FitAlign**, my final year project: an all-in-one Flutter fitness app
 - 💼 **Freelance developer**: web & mobile builds for real clients
 - 📊 Turning data into stories with **Python**, Pandas and NetworkX
@@ -44,6 +45,7 @@ degree      : Bachelor in Software Engineering (2023 – 2027)
 cgpa        : 3.59 (Degree) · 3.25 (Diploma)
 dean_list   : 4× · Semesters 1, 3, 4 & final semester
 internship  : Lab Researcher · ITS Surabaya, Indonesia 🇮🇩
+paper       : Real-Time Hand Gesture Recognition UAVs Control Using LSTM (co-author)
 lab         : B201 · Telematics & Intelligent Multimedia
 research    : Object detection with deep learning (Python, PyTorch)
 supervisor  : Dr. Supeno Mardi Susiki Nugroho, ST., MT.
@@ -143,7 +145,7 @@ end WakaTime -->
 </div>
 
 ## 🚀 Featured projects
-<sub>What I'm researching now, plus things I've built (and occasionally knocked off the table).</sub>
+<sub>Research, client work and things I've built (and occasionally knocked off the table).</sub>
 
 <table>
 <tr>
@@ -162,6 +164,19 @@ Teaching machines to identify and locate objects in visual data. I prepare and a
 </td>
 </tr>
 <tr>
+<td colspan="2" valign="top">
+
+### 🚁 Real-Time Hand Gesture Recognition UAVs Control Using Long Short-Term Memory (LSTM)
+
+<img src="https://img.shields.io/badge/research_paper_%C2%B7_co--author_%C2%B7_international_conference%2C_Nov_2026-B4BEFE?style=flat-square" alt="research paper · co-author · international conference, Nov 2026" />
+
+Flying a drone with nothing but hand gestures: an **LSTM** network recognises gestures in **real time** and turns them into UAV commands. Co-authored with researchers from ITS Surabaya under my UniKL MIIT affiliation, and I'm presenting it at an international conference this November.
+
+`LSTM` `Deep Learning` `Gesture Recognition` `UAV` `Real-Time` `HCI`
+
+</td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🏃 FitAlign
@@ -171,6 +186,30 @@ Teaching machines to identify and locate objects in visual data. I prepare and a
 An all-in-one fitness companion: **workouts, running, yoga and diet tracking** in a single Flutter app, with GPS run tracking on Google Maps, voice guidance through text-to-speech and Stripe payments. Built around user-behaviour data and digital-experience analytics.
 
 `Flutter` `Dart` `SQLite` `Google Maps` `Stripe` `TTS`
+
+</td>
+<td width="50%" valign="top">
+
+### 🚚 Fleet & Workshop Management Platform
+
+<img src="https://img.shields.io/badge/freelance_%C2%B7_client_project_%C2%B7_in_progress-F9E2AF?style=flat-square" alt="freelance · client project · in progress" />
+
+A platform for a Malaysian trucking company: drivers report breakdowns from an **Android app**, transporters track their fleet, workshops get repair jobs assigned and logged, and an **admin dashboard** ties it together with invoicing and **AI-generated maintenance and driver reports**. Built by a three-person freelance team; I handle the client side, from scoping and the proposal to the clickable dashboard demo.
+
+`Android` `Web Dashboard` `Fleet Management` `AI Reports` `Freelance`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🦁 Taman Safari Prigen Website
+
+<img src="https://img.shields.io/badge/Java_Journey_Immersion_Program_%C2%B7_team_lead-FAB387?style=flat-square" alt="Java Journey Immersion Program · team lead" />
+
+Led my group in an international business immersion programme in Indonesia: a **digital marketing strategy** for Taman Safari Prigen (pricing bundles and a GPS QR park-map idea) plus a **promotional website** with animations and a ticket-ordering flow.
+
+`Web` `Animations` `Ticket Ordering` `Digital Marketing` `Team Lead`
 
 </td>
 <td width="50%" valign="top">
@@ -201,41 +240,26 @@ A **gesture-controlled wheelchair** prototype: an ESP32 drives the chair while T
 </td>
 <td width="50%" valign="top">
 
-### 🌐 RICA Complaint System
+### 🎰 Ichiban Kuji Shop Simulator
 
-<img src="https://img.shields.io/badge/coursework_%C2%B7_internet_programming-89DCEB?style=flat-square" alt="coursework · internet programming" />
+<img src="https://img.shields.io/badge/game_concept_%C2%B7_on_the_drawing_board-F5C2E7?style=flat-square" alt="game concept · on the drawing board" />
 
-A full-stack **PHP/MySQL** web system where residents submit and track complaints online, from the first report to the final resolution.
+A first-person **shop management sim** in Unity 3D about running an anime-merch lottery shop. So far: a full **game design document** and a 15-scene storyboard in **Figma**. Coming to a repo near you.
 
-`PHP` `MySQL` `JavaScript` `HTML` `CSS`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🎮 Game Vault
-
-<img src="https://img.shields.io/badge/coursework_%C2%B7_web_development-F5C2E7?style=flat-square" alt="coursework · web development" />
-
-A **C#** desktop app for organising a personal digital game collection, with HTML/CSS views and a focus on clean data structures and interface design.
-
-`C#` `HTML` `CSS` `Desktop`
-
-</td>
-<td width="50%" valign="top">
-
-### 🧺 Laundry Management System
-
-<img src="https://img.shields.io/badge/coursework_%C2%B7_software_design_%26_integration-F9E2AF?style=flat-square" alt="coursework · software design & integration" />
-
-A command-line **C++** system for managing laundry orders, built as a team with Git and GitHub pull requests.
-
-`C++` `OOP` `CLI` `Git` `Teamwork`
+`Unity` `C#` `Game Design` `Figma`
 
 </td>
 </tr>
 </table>
+
+<details>
+<summary><b>📚 More coursework projects</b> <sub>(click to expand)</sub></summary>
+
+- 🌐 **RICA Complaint System** <sub>(internet programming)</sub>: A full-stack PHP/MySQL web system where residents submit and track complaints online, from the first report to the final resolution. `PHP` `MySQL` `JavaScript` `HTML` `CSS`
+- 🎮 **Game Vault** <sub>(web development)</sub>: A C# desktop app for organising a personal digital game collection, with HTML/CSS views and a focus on clean data structures and interface design. `C#` `HTML` `CSS`
+- 🧺 **Laundry Management System** <sub>(software design & integration)</sub>: A command-line C++ system for managing laundry orders, built as a team with Git and GitHub pull requests. `C++` `OOP` `CLI` `Git`
+
+</details>
 
 ## 🦖 Incident report
 <sub>Postmortem: someone force-pushed to main on a Friday. Root cause: a pink dragon with a fire-breathing problem. Fix: <code>git revert</code>. Cats have nine lives; production does not.</sub>
