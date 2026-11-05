@@ -145,7 +145,7 @@ end WakaTime -->
 </div>
 
 ## 🚀 Featured projects
-<sub>Research, client work and things I've built (and occasionally knocked off the table).</sub>
+<sub>My research and university projects (and things I've occasionally knocked off the table).</sub>
 
 <table>
 <tr>
@@ -190,30 +190,6 @@ An all-in-one fitness companion: **workouts, running, yoga and diet tracking** i
 </td>
 <td width="50%" valign="top">
 
-### 🚚 Fleet & Workshop Management Platform
-
-<img src="https://img.shields.io/badge/freelance_%C2%B7_client_project_%C2%B7_in_progress-F9E2AF?style=flat-square" alt="freelance · client project · in progress" />
-
-A platform for a Malaysian trucking company: drivers report breakdowns from an **Android app**, transporters track their fleet, workshops get repair jobs assigned and logged, and an **admin dashboard** ties it together with invoicing and **AI-generated maintenance and driver reports**. Built by a three-person freelance team; I handle the client side, from scoping and the proposal to the clickable dashboard demo.
-
-`Android` `Web Dashboard` `Fleet Management` `AI Reports` `Freelance`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🦁 Taman Safari Prigen Website
-
-<img src="https://img.shields.io/badge/Java_Journey_Immersion_Program_%C2%B7_team_lead-FAB387?style=flat-square" alt="Java Journey Immersion Program · team lead" />
-
-Led my group in an international business immersion programme in Indonesia: a **digital marketing strategy** for Taman Safari Prigen (pricing bundles and a GPS QR park-map idea) plus a **promotional website** with animations and a ticket-ordering flow.
-
-`Web` `Animations` `Ticket Ordering` `Digital Marketing` `Team Lead`
-
-</td>
-<td width="50%" valign="top">
-
 ### 📊 [Wikipedia Edit Pattern Analysis](https://github.com/Miaoricle/wikipedia-edit-analysis)
 
 <img src="https://img.shields.io/badge/side_project_%C2%B7_public_repo-A6E3A1?style=flat-square" alt="side project · public repo" />
@@ -240,26 +216,41 @@ A **gesture-controlled wheelchair** prototype: an ESP32 drives the chair while T
 </td>
 <td width="50%" valign="top">
 
-### 🎰 Ichiban Kuji Shop Simulator
+### 🌐 RICA Complaint System
 
-<img src="https://img.shields.io/badge/game_concept_%C2%B7_on_the_drawing_board-F5C2E7?style=flat-square" alt="game concept · on the drawing board" />
+<img src="https://img.shields.io/badge/coursework_%C2%B7_internet_programming-89DCEB?style=flat-square" alt="coursework · internet programming" />
 
-A first-person **shop management sim** in Unity 3D about running an anime-merch lottery shop. So far: a full **game design document** and a 15-scene storyboard in **Figma**. Coming to a repo near you.
+A full-stack **PHP/MySQL** web system where residents submit and track complaints online, from the first report to the final resolution.
 
-`Unity` `C#` `Game Design` `Figma`
+`PHP` `MySQL` `JavaScript` `HTML` `CSS`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🎮 Game Vault
+
+<img src="https://img.shields.io/badge/coursework_%C2%B7_web_development-F5C2E7?style=flat-square" alt="coursework · web development" />
+
+A **C#** desktop app for organising a personal digital game collection, with HTML/CSS views and a focus on clean data structures and interface design.
+
+`C#` `HTML` `CSS` `Desktop`
+
+</td>
+<td width="50%" valign="top">
+
+### 🧺 Laundry Management System
+
+<img src="https://img.shields.io/badge/coursework_%C2%B7_software_design_%26_integration-F9E2AF?style=flat-square" alt="coursework · software design & integration" />
+
+A command-line **C++** system for managing laundry orders, built as a team with Git and GitHub pull requests.
+
+`C++` `OOP` `CLI` `Git` `Teamwork`
 
 </td>
 </tr>
 </table>
-
-<details>
-<summary><b>📚 More coursework projects</b> <sub>(click to expand)</sub></summary>
-
-- 🌐 **RICA Complaint System** <sub>(internet programming)</sub>: A full-stack PHP/MySQL web system where residents submit and track complaints online, from the first report to the final resolution. `PHP` `MySQL` `JavaScript` `HTML` `CSS`
-- 🎮 **Game Vault** <sub>(web development)</sub>: A C# desktop app for organising a personal digital game collection, with HTML/CSS views and a focus on clean data structures and interface design. `C#` `HTML` `CSS`
-- 🧺 **Laundry Management System** <sub>(software design & integration)</sub>: A command-line C++ system for managing laundry orders, built as a team with Git and GitHub pull requests. `C++` `OOP` `CLI` `Git`
-
-</details>
 
 ## 🦖 Incident report
 <sub>Postmortem: someone force-pushed to main on a Friday. Root cause: a pink dragon with a fire-breathing problem. Fix: <code>git revert</code>. Cats have nine lives; production does not.</sub>
