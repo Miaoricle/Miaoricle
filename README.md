@@ -238,10 +238,10 @@ A command-line **C++** system for managing laundry orders, built as a team with 
 </table>
 
 ## 🦖 Incident report
-<sub>Postmortem: someone force-pushed to main on a Friday. Root cause: a pink T. rex with laser eyes. Fix: <code>git revert</code>. Cats have nine lives; production does not.</sub>
+<sub>Postmortem: someone force-pushed to main on a Friday. Root cause: a pink dragon with a fire-breathing problem. Fix: <code>git revert</code>. Cats have nine lives; production does not.</sub>
 
 <div align="center">
-<img src="./profile/incident.svg" width="100%" alt="A pink T. rex fires laser beams from its eyes at the pixel cat after a force-push. The cat flashes into an X-ray skeleton, turns to charcoal, crumbles into ash leaving a skeleton that says meow, then git revert brings it back." />
+<img src="./profile/incident.svg" width="100%" alt="A pink winged dragon breathes fire at the pixel cat after a force-push. The cat flashes into an X-ray skeleton, turns to charcoal, crumbles into ash leaving a skeleton that says meow, then git revert brings it back." />
 </div>
 
 <img src="./profile/divider.svg" width="100%" alt="" />

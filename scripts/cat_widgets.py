@@ -1380,76 +1380,96 @@ def utcnow():
 
 
 # --------------------------------------------------------------------------------------
-# Incident report: a pink T. rex laser-beams the cat (cartoon gag, loops forever)
+# Incident report: a pink dragon flame-grills the cat (cartoon gag, loops forever)
 # --------------------------------------------------------------------------------------
-TREX_COLORS = {"k": "3B1E36", "p": "F5C2E7", "d": "E39AD0", "l": "FCE4F4", "v": "D17DBA", "e": "11111B",
-               "W": "FFFFFF", "T": "FFFDF5", "c": "F9E2AF", "m": "5B1A45", "t": "F38BA8", "x": "FF3B6B"}
+DRAGON_COLORS = {"k": "3B1E36", "p": "F5C2E7", "d": "E39AD0", "l": "FCE4F4", "L": "EBC4DF", "w": "D46BB5",
+                 "b": "8E3A7A", "h": "FFF4D6", "H": "D9C9A3", "e": "11111B", "W": "FFFFFF", "T": "FFFDF5",
+                 "c": "F9E2AF", "m": "5B1A45", "t": "F38BA8"}
 BURN_COLORS = {"1": "4A4453", "2": "5E576B", "5": "1F4C68", "6": "89DCEB", "I": "F4F1E8", "i": "C9C1AE",
                "U": "7F849C", "u": "A6ADC8", "w": "45475A"}
 
 
-def trex_rows(mouth="closed", eye="normal"):
-    """Original pink T. rex, side view facing right, 68 x 48."""
-    W, H = 68, 48
+def dragon_rows(mouth="closed", wings=None):
+    """Original pink winged dragon, side view facing right, 74 x 54. wings: None, "up" or "down"."""
+    W, H = 74, 54
     g = [["."] * W for _ in range(H)]
 
     def put(x, y, ch):
         if 0 <= x < W and 0 <= y < H:
             g[y][x] = ch
 
-    def ellipse_pts(cx, cy, rx, ry):
-        return {(x, y) for y in range(H) for x in range(W)
-                if ((x + .5 - cx) / rx) ** 2 + ((y + .5 - cy) / ry) ** 2 <= 1}
+    def disc(cx, cy, r, ch):
+        for y in range(int(cy - r) - 1, int(cy + r) + 2):
+            for x in range(int(cx - r) - 1, int(cx + r) + 2):
+                if (x + .5 - cx) ** 2 + (y + .5 - cy) ** 2 <= r * r:
+                    put(x, y, ch)
 
-    def rect(x0, y0, x1, y1, ch):
-        for y in range(y0, y1 + 1):
-            for x in range(x0, x1 + 1):
-                put(x, y, ch)
-
-    rect(19, 33, 23, 41, "d")  # far leg
-    rect(17, 41, 27, 43, "d")
-    for x in range(27):  # long tapering tail
-        cy, half = 19.5 - (26 - x) * 0.16, 0.7 + x * 0.21
+    def ellipse(cx, cy, rx, ry, ch):
         for y in range(H):
-            if abs(y + .5 - cy) <= half:
-                g[y][x] = "p"
-    for (cx, cy, rx, ry) in ((31, 22, 12.5, 9.5), (41.5, 15, 6.8, 7.5), (50, 9.5, 9.5, 6.5)):
-        for (x, y) in ellipse_pts(cx, cy, rx, ry):
-            g[y][x] = "p"
-    rect(50, 4, 62, 12, "p")
-    for (x, y) in ((62, 4), (62, 5), (61, 4)):
-        put(x, y, ".")
-    drop = 4 if mouth == "open" else 0
-    rect(45, 13 + drop, 60, 16 + drop, "p")
-    rect(44, 12, 47, 16 + drop, "p")
-    put(60, 16 + drop, ".")
-    if mouth == "open":
-        rect(48, 13, 61, 16, "m")
-        for x in range(48, 61):
-            put(x, 13 if x % 2 == 0 else 16, "T")
-        rect(52, 15, 57, 16, "t")
-        for x in range(53, 60, 2):
-            put(x, 16, "T")
-    for x in range(23, 47):  # belly band
-        col = [y for y in range(H) if g[y][x] == "p"]
+            for x in range(W):
+                if ((x + .5 - cx) / rx) ** 2 + ((y + .5 - cy) / ry) ** 2 <= 1:
+                    g[y][x] = ch
+
+    def stroke(pts, r0, r1, ch):
+        segs = list(zip(pts, pts[1:]))
+        total, acc = sum(math.dist(a, b) for a, b in segs), 0
+        for a, b in segs:
+            L = math.dist(a, b)
+            n = max(2, int(L * 3))
+            for i in range(n + 1):
+                f = i / n
+                disc(a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, r0 + (r1 - r0) * (acc + L * f) / total, ch)
+            acc += L
+
+    def poly(pts, ch):
+        for y in range(H):
+            for x in range(W):
+                px, py, inside, j = x + .5, y + .5, False, len(pts) - 1
+                for i in range(len(pts)):
+                    (xi, yi), (xj, yj) = pts[i], pts[j]
+                    if (yi > py) != (yj > py) and px < (xj - xi) * (py - yi) / (yj - yi) + xi:
+                        inside = not inside
+                    j = i
+                if inside:
+                    g[y][x] = ch
+
+    def line(a, b, ch):
+        n = int(max(abs(b[0] - a[0]), abs(b[1] - a[1])) * 2) + 1
+        for i in range(n + 1):
+            put(round(a[0] + (b[0] - a[0]) * i / n), round(a[1] + (b[1] - a[1]) * i / n), ch)
+
+    if wings:  # bat wing behind the body
+        shoulder = (33, 30)
+        wrist, tips, dips = {"up": ((24, 1), [(1, 7), (5, 19), (17, 27)], [(10, 12), (12, 21)]),
+                             "down": ((17, 19), [(0, 29), (6, 36), (18, 38)], [(8, 30), (13, 35)])}[wings]
+        poly([shoulder, wrist, tips[0], dips[0], tips[1], dips[1], tips[2], (31, 33)], "w")
+        line(shoulder, wrist, "b")
+        for tip in tips:
+            line(wrist, tip, "b")
+    stroke([(23, 40), (21, 48)], 2.6, 2.2, "d")  # far legs
+    ellipse(20.5, 49.2, 3.5, 1.6, "d")
+    stroke([(37, 40), (36, 48)], 2.3, 2.0, "d")
+    ellipse(36, 49.2, 3.2, 1.5, "d")
+    stroke([(22, 38), (13, 43), (6, 42), (3, 37)], 3.4, 1.0, "p")  # tail with a spade tip
+    poly([(3, 37), (0, 33), (3, 29), (6, 33)], "p")
+    ellipse(31, 36, 12.5, 8, "p")  # body
+    stroke([(40, 33), (46, 26), (48, 19), (52, 14)], 4.5, 3.4, "p")  # neck
+    ellipse(55.5, 13.5, 7, 4.8, "p")  # head
+    poly([(56, 9.5), (67, 11), (68, 15), (66, 17.5), (56, 18)], "p")  # snout
+    ellipse(25, 40, 5.5, 6.5, "p")  # near legs
+    stroke([(25, 44), (24, 49)], 2.8, 2.4, "p")
+    ellipse(25.5, 49.6, 4, 1.6, "p")
+    stroke([(40, 39), (41, 48)], 2.5, 2.2, "p")
+    ellipse(42, 49.6, 3.6, 1.6, "p")
+    for x in list(range(41, 54)) + list(range(29, 37)):  # belly scales
+        col = [y for y in range(H) if g[y][x] == "p" and 10 < y < (34 if x >= 41 else 45)]
         if col:
-            for y in (col[-1], col[-1] - 1):
-                g[y][x] = "l"
-    thigh = ellipse_pts(30, 28, 8, 8.5)
-    for (x, y) in thigh:
-        g[y][x] = "p"
-    for (x, y) in thigh:
-        if y < 33 and any((x + dx, y + dy) not in thigh for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
-            g[y][x] = "d"
-    rect(28, 33, 32, 41, "p")
-    rect(27, 41, 38, 43, "p")
-    rect(28, 41, 32, 41, "d")
-    for (x, y) in ((41, 22), (42, 22), (42, 23), (43, 23), (43, 24), (44, 24)):  # tiny arms
-        put(x, y, "p")
-    for (x0, y0) in ((9, 16), (14, 15), (19, 14), (24, 13), (29, 13), (34, 14)):  # stripes
-        for i in range(3):
-            if g[y0 + i][x0 + i // 2] == "p":
-                g[y0 + i][x0 + i // 2] = "v"
+            for y in range(max(col) - 1, max(col) + 1):
+                g[y][x] = "L" if (y + x) % 3 == 0 else "l"
+    if mouth == "open":
+        poly([(55, 16.5), (67, 17.5), (66, 22), (56, 21.5)], "p")  # lower jaw drops
+    stroke([(53, 10), (49, 6), (45, 4)], 1.4, 0.6, "h")  # horns
+    stroke([(56, 9.5), (53, 5), (50, 2.5)], 1.3, 0.6, "h")
     out = [row[:] for row in g]
     for y in range(H):
         for x in range(W):
@@ -1457,20 +1477,32 @@ def trex_rows(mouth="closed", eye="normal"):
                                       for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
                 out[y][x] = "k"
     g = out
-    if mouth == "closed":
-        for x in range(47, 61):
-            g[13][x] = "k"
-        for x in range(49, 60, 2):
-            g[14][x] = "T"
-    for (x, y) in ((39, 42), (39, 43), (36, 44), (37, 44), (44, 25), (45, 25)):
-        g[y][x] = "c"
-    for x in range(51, 56):
-        g[6][x] = "k"
-    eye_px = (((53, 7, "W"), (54, 7, "e"), (53, 8, "e"), (54, 8, "e")) if eye == "normal" else
-              ((52, 7, "x"), (53, 7, "W"), (54, 7, "W"), (55, 7, "x"), (53, 8, "x"), (54, 8, "x")))
-    for (x, y, ch) in eye_px:
+    for (x, y) in ((46, 5), (49, 7), (51, 4), (54, 7)):
+        if g[y][x] == "h":
+            g[y][x] = "H"
+    for (x, y, ch) in ((58, 12, "W"), (59, 12, "e"), (58, 13, "e"), (59, 13, "e")):
         g[y][x] = ch
-    g[6][60] = "k"
+    for x in range(57, 61):
+        g[11][x] = "k"
+    g[12][66] = "k"
+    if mouth == "closed":
+        for x in range(58, 67):
+            g[16][x] = "k"
+        g[17][62] = g[17][64] = "T"
+    else:
+        for y in range(15, 22):
+            for x in range(57, W):
+                if abs(y + .5 - 18) <= (x - 56) * 0.4 and g[y][x] not in ".k":
+                    g[y][x] = "m"
+        for x in range(60, 68, 2):
+            if g[16][x] == "m":
+                g[16][x] = "T"
+        for x in range(61, 67, 2):
+            if g[20][x] == "m":
+                g[20][x] = "T"
+        for (x, y) in ((60, 19), (61, 19), (62, 19), (61, 20)):
+            if g[y][x] == "m":
+                g[y][x] = "t"
     return ["".join(r) for r in g]
 
 
@@ -1592,25 +1624,30 @@ def render_incident(cfg, t, C):
     rnd = random.Random(11)
 
     # ---- geometry
-    KS, KX = 4.2, 26
-    KY = GY - 45 * KS
-    eye = (KX + 54 * KS, KY + 7.6 * KS)
+    KS, KX = 4.2, 22
+    KY = GY - 52 * KS
+    mouth = (KX + 66 * KS, KY + 18.2 * KS)
+    throat = (KX + 47 * KS, KY + 24 * KS)
+    nostril = (KX + 66 * KS, KY + 12 * KS)
     CS, CX = 3.6, 764
     CY = GY - 31 * CS
     target = (CX + 14 * CS, CY + 21 * CS)
 
     defs = (f'<clipPath id="izClip"><rect x="2" y="2" width="{W - 4}" height="{H - 4}" rx="20"/></clipPath>'
             f'<radialGradient id="izGlow"><stop offset="0" stop-color="#FFFFFF"/>'
-            f'<stop offset=".35" stop-color="#FF8AC8"/><stop offset="1" stop-color="#FF3B6B" stop-opacity="0"/>'
+            f'<stop offset=".35" stop-color="#FFD36E"/><stop offset="1" stop-color="#FF5A36" stop-opacity="0"/>'
             f'</radialGradient>'
+            f'<linearGradient id="izFire" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FFF6D6"/>'
+            f'<stop offset=".25" stop-color="#FFD36E"/><stop offset=".6" stop-color="#FF9E3D"/>'
+            f'<stop offset="1" stop-color="#FF5A36"/></linearGradient>'
             f'<linearGradient id="izSky" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#{t["base"]}"/>'
             f'<stop offset="1" stop-color="#{mix(t["base"], t["pink"], .10)}"/></linearGradient>')
     b = [card(W, H, t, 22), f'<g clip-path="url(#izClip)"><rect width="{W}" height="{H}" fill="url(#izSky)"/>']
 
-    # red alert wash during the beam
+    # red-hot wash while the fire is on
     b.append(f'<rect class="{tl.anim([(0, {"opacity": 0}), (BEAM, {"opacity": 0}), (BEAM + .05, {"opacity": .22}), (BEAM + .25, {"opacity": .08}), (CHAR - .3, {"opacity": .12}), (CHAR, {"opacity": 0})])}" '
              f'width="{W}" height="{H}" fill="#{t["red"]}"/>')
-    # white flash the moment the laser fires
+    # white flash the moment the fire starts
     b.append(f'<rect class="{tl.anim([(0, {"opacity": 0}), (BEAM - .01, {"opacity": 0}), (BEAM, {"opacity": .6}), (BEAM + .14, {"opacity": 0})])}" '
              f'width="{W}" height="{H}" fill="#FFFFFF"/>')
     # tiny city in the background (so everyone looks enormous)
@@ -1628,7 +1665,7 @@ def render_incident(cfg, t, C):
     b.append(f'<rect x="0" y="{GY}" width="{W}" height="{H - GY}" fill="#{t["mantle"]}"/>'
              f'<line x1="0" y1="{GY}" x2="{W}" y2="{GY}" stroke="#{t["surface1"]}" stroke-width="2"/>')
 
-    # ---- everything that shakes when the laser fires
+    # ---- everything that shakes while the dragon breathes fire
     shake = [(0, {"transform": "translate(0px,0px)"}), (BEAM, {"transform": "translate(0px,0px)"})]
     tt = BEAM + .04
     while tt < CHAR:
@@ -1637,70 +1674,65 @@ def render_incident(cfg, t, C):
     shake.append((CHAR + .05, {"transform": "translate(0px,0px)"}))
     stage = []
 
-    # T. rex: idle bob, rears back to charge, recoils while firing, does a happy stomp afterwards
-    rex_move = [(0, (0, 0)), (CHARGE, (0, 0)), (CHARGE + .5, (-10, -6)), (BEAM - .05, (-10, -6)), (BEAM + .06, (8, 2))]
+    # dragon: rears back to inhale, recoils while breathing fire, does a happy hop afterwards
+    rex_move = [(0, (0, 0)), (CHARGE, (0, 0)), (CHARGE + .6, (-12, -4)), (BEAM - .05, (-12, -4)), (BEAM + .06, (6, 2))]
     tt = BEAM + .12
     while tt < CHAR:
-        rex_move.append((tt, (rnd.uniform(3, 7), rnd.uniform(0, 2.5))))
+        rex_move.append((tt, (rnd.uniform(2, 6), rnd.uniform(0, 2.5))))
         tt += .07
     rex_move += [(CHAR + .25, (0, 0)), (6.3, (0, -9)), (6.5, (0, 0)), (6.75, (0, -9)), (6.95, (0, 0)), (7.2, (0, -6)),
                  (7.4, (0, 0))]
     rex_cls = tl.anim([(a, {"transform": f"translate({x:.1f}px,{y:.1f}px)"}) for a, (x, y) in rex_move])
     rex = []
-    rex.append(f'<ellipse cx="{KX + 30 * KS}" cy="{GY + 2}" rx="125" ry="7" fill="#{t["crust"]}" opacity=".55"/>')
-    calm, roar = trex_rows("closed"), trex_rows("open", "laser")
-    rex.append(tl.group(tl.show([(0, CHARGE), (CHAR + .25, P)]), sprite(calm, TREX_COLORS, KX, KY, KS)))
-    rex.append(tl.group(tl.show([(CHARGE, CHAR + .25)]), sprite(roar, TREX_COLORS, KX, KY, KS)))
-    # eye charging glow
-    eg = tl.show([(CHARGE, CHAR)])
-    rex.append(f'<g class="{eg}"><circle class="izeye" cx="{f2(eye[0])}" cy="{f2(eye[1])}" r="16" fill="url(#izGlow)"/></g>')
+    rex.append(f'<ellipse cx="{KX + 32 * KS}" cy="{GY + 2}" rx="120" ry="7" fill="#{t["crust"]}" opacity=".55"/>')
+    calm, roar = dragon_rows("closed"), dragon_rows("open")
+    for i, wing in enumerate(("up", "down")):  # wings flap the whole time
+        rex.append(sprite(diff(calm, dragon_rows("closed", wing)), DRAGON_COLORS, KX, KY, KS, f"izw{i}"))
+    css.append(cycle_css("izw", 2, .7))
+    rex.append(tl.group(tl.show([(0, CHARGE), (CHAR + .25, P)]), sprite(calm, DRAGON_COLORS, KX, KY, KS)))
+    rex.append(tl.group(tl.show([(CHARGE, CHAR + .25)]), sprite(roar, DRAGON_COLORS, KX, KY, KS)))
+    # fire building up in the throat, smoke curling from the nostrils
+    rex.append(tl.group(tl.show([(CHARGE + .2, BEAM + .2)]),
+                        f'<circle class="izeye" cx="{f2(throat[0])}" cy="{f2(throat[1])}" r="16" fill="url(#izGlow)"/>'))
     css.append(".izeye{transform-box:fill-box;transform-origin:center;animation:izeye .18s ease-in-out infinite alternate}"
                "@keyframes izeye{from{transform:scale(.7);opacity:.7}to{transform:scale(1.35);opacity:1}}")
-    # "!" over the rex when it sees the force-push
-    rex.append(tl.group(tl.show([(ALERT, CHARGE + .4)]), sprite(EXCLAIM, CC, KX + 44 * KS, KY - 30, 3.4)))
-    # "hehe" after the deed
+    puffs = "".join(f'<circle class="izsm" cx="{f2(nostril[0])}" cy="{f2(nostril[1])}" r="4" fill="#{t["overlay1"]}" '
+                    f'style="animation-delay:-{i * .45:.2f}s"/>' for i in range(3))
+    rex.append(tl.group(tl.show([(CHARGE, BEAM)]), puffs))
+    rex.append(tl.group(tl.show([(CHARGE + .3, BEAM)]),
+                        text(KX + 40 * KS, KY - 6, "*deep breath*", 17, t["subtext0"], 700, extra=' font-style="italic"')))
+    rex.append(tl.group(tl.show([(ALERT, CHARGE + .4)]), sprite(EXCLAIM, CC, KX + 60 * KS, KY - 30, 3.4)))
     rex.append(tl.group(tl.show([(CHAR + .3, CRUMBLE + .4)]),
-                        text(KX + 50 * KS, KY - 12, "hehe", 20, t["pink"], 800, extra=' font-style="italic"')))
-    # charging sparks sucked into the eye
-    sparks = []
-    for i in range(8):
-        ang = i / 8 * 2 * math.pi
-        dx, dy = math.cos(ang) * 46, math.sin(ang) * 40
-        sparks.append(f'<rect class="izsp" x="{f2(eye[0] - 2)}" y="{f2(eye[1] - 2)}" width="4" height="4" '
-                      f'fill="#{t["pink"] if i % 2 else "FFFFFF"}" style="--dx:{dx:.0f}px;--dy:{dy:.0f}px;'
-                      f'animation-delay:-{i * .07:.2f}s"/>')
-    css.append(".izsp{animation:izsp .55s ease-in infinite}"
-               "@keyframes izsp{0%{transform:translate(var(--dx),var(--dy));opacity:0}"
-               "30%{opacity:1}100%{transform:translate(0,0);opacity:0}}")
-    rex.append(tl.group(tl.show([(CHARGE + .2, BEAM)]), "".join(sparks)))
+                        text(KX + 58 * KS, KY - 8, "hehe", 20, t["pink"], 800, extra=' font-style="italic"')))
 
-    # ---- the laser: two fat beams from the rex's eye to the cat
-    ang = math.degrees(math.atan2(target[1] - eye[1], target[0] - eye[0]))
-    L = math.hypot(target[0] - eye[0], target[1] - eye[1])
+    # ---- the fire: a roaring cone of flame from the dragon's mouth to the cat
+    ang = math.degrees(math.atan2(target[1] - mouth[1], target[0] - mouth[0]))
+    L = math.hypot(target[0] - mouth[0], target[1] - mouth[1])
     grow = tl.anim([(0, {"transform": "scaleX(0)"}), (BEAM, {"transform": "scaleX(0)"}),
-                    (BEAM + .14, {"transform": "scaleX(1)"}), (CHAR - .01, {"transform": "scaleX(1)"}),
+                    (BEAM + .22, {"transform": "scaleX(1)"}), (CHAR - .01, {"transform": "scaleX(1)"}),
                     (CHAR, {"transform": "scaleX(0)"})], base={"transform": "scaleX(1)"})
-    beams = []
-    for k, (off, th) in enumerate(((-7, 1.0), (7, .8))):
-        a2 = ang + off * .12
-        beams.append(
-            f'<g transform="translate({f2(eye[0])} {f2(eye[1] + off * .3)}) rotate({a2:.2f})">'
-            f'<g class="{grow}" style="transform-origin:0px 0px">'
-            f'<g class="izwob" style="animation-delay:-{k * .05:.2f}s">'
-            f'<rect x="0" y="{f2(-17 * th)}" width="{f2(L + 10)}" height="{f2(34 * th)}" rx="{f2(17 * th)}" fill="#FF3B6B" opacity=".28"/>'
-            f'<rect x="0" y="{f2(-11 * th)}" width="{f2(L + 6)}" height="{f2(22 * th)}" rx="{f2(11 * th)}" fill="#FF6FAE" opacity=".85"/>'
-            f'<rect x="0" y="{f2(-6 * th)}" width="{f2(L + 2)}" height="{f2(12 * th)}" rx="{f2(6 * th)}" fill="#{t["pink"]}"/>'
-            f'<rect x="0" y="{f2(-2.5 * th)}" width="{f2(L)}" height="{f2(5 * th)}" rx="2.5" fill="#FFFFFF"/>'
-            + "".join(f'<rect class="izpt" x="0" y="{f2(rnd.uniform(-8, 8) * th)}" width="14" height="3" fill="#FFFFFF" '
-                      f'style="--L:{L:.0f}px;animation-delay:-{rnd.uniform(0, .3):.2f}s"/>' for _ in range(6))
-            + '</g></g></g>')
-    css.append(".izwob{transform-box:fill-box;transform-origin:0 50%;animation:izwob .06s linear infinite alternate}"
-               "@keyframes izwob{from{transform:scaleY(.8)}to{transform:scaleY(1.2)}}"
-               ".izpt{animation:izpt .3s linear infinite}@keyframes izpt{from{transform:translateX(0)}"
-               "to{transform:translateX(var(--L))}}")
-    beam_vis = tl.show([(BEAM, CHAR)], base=1)
-    rex.append(f'<g class="{beam_vis}">{"".join(beams)}'
-               f'<circle class="izeye" cx="{f2(eye[0])}" cy="{f2(eye[1])}" r="22" fill="url(#izGlow)"/></g>')
+
+    def cone(w0, w1, extra, fill, op):
+        return (f'<path d="M0 {f2(-w0)} L{f2(L)} {f2(-w1)} Q{f2(L + extra)} 0 {f2(L)} {f2(w1)} L0 {f2(w0)} Z" '
+                f'fill="{fill}" opacity="{op}"/>')
+
+    flames = []
+    for i in range(16):
+        col = ("FFF6D6", "FFD36E", "FF9E3D", "FF5A36")[i % 4]
+        flames.append(f'<circle class="izfl" cx="0" cy="0" r="11" fill="#{col}" style="--L:{L:.0f}px;'
+                      f'--dy:{rnd.uniform(-22, 22):.0f}px;animation-delay:-{rnd.uniform(0, .5):.2f}s"/>')
+    fire = (f'<g transform="translate({f2(mouth[0])} {f2(mouth[1])}) rotate({ang:.2f})">'
+            f'<g class="{grow}" style="transform-origin:0px 0px"><g class="izwob">'
+            + cone(10, 50, 40, "#FF5A36", .45) + cone(7, 38, 30, "url(#izFire)", .9)
+            + cone(4, 20, 16, "#FFE9A8", .9) + cone(2, 7, 6, "#FFFFFF", .95)
+            + "".join(flames) + "</g></g></g>")
+    css.append(".izwob{transform-box:fill-box;transform-origin:0 50%;animation:izwob .07s linear infinite alternate}"
+               "@keyframes izwob{from{transform:scaleY(.86)}to{transform:scaleY(1.14)}}"
+               ".izfl{transform-box:fill-box;transform-origin:center;animation:izfl .5s ease-out infinite}"
+               "@keyframes izfl{from{transform:translate(0,0) scale(.4);opacity:1}"
+               "to{transform:translate(var(--L),var(--dy)) scale(3.2);opacity:0}}")
+    rex.append(f'<g class="{tl.show([(BEAM, CHAR)], base=1)}">{fire}'
+               f'<circle class="izeye" cx="{f2(mouth[0])}" cy="{f2(mouth[1])}" r="20" fill="url(#izGlow)"/></g>')
     stage.append(f'<g class="{rex_cls}">{"".join(rex)}</g>')
     # ---- the cat
     cat = []
@@ -1811,7 +1843,7 @@ def render_incident(cfg, t, C):
     b.append(f'<g class="{zap}" style="transform-box:fill-box;transform-origin:center">'
              f'<g class="izjit"><text x="{f2(CX + 14 * CS)}" y="{CY - 30}" font-family="{SANS}" font-size="38" font-weight="900" '
              f'fill="#{t["yellow"]}" stroke="#{t["crust"]}" stroke-width="7" paint-order="stroke" text-anchor="middle" '
-             f'transform="rotate(-8 {f2(CX + 14 * CS)} {CY - 30})">BZZZZZT!</text></g></g>')
+             f'transform="rotate(-8 {f2(CX + 14 * CS)} {CY - 30})">FWOOOOSH!</text></g></g>')
     css.append(".izjit{animation:izjit .08s steps(2) infinite}@keyframes izjit{from{transform:translate(-2px,1px)}"
                "to{transform:translate(2px,-1px)}}")
     bx, by = CX + 25 * CS + 6, CY - 6
@@ -1845,7 +1877,7 @@ def render_incident(cfg, t, C):
                       tl.group(tl.show([(1.7, ALERT)]), text(28 + (len(push_cmd) + 4) * 9, cap_y, "# friday, 5:59 pm", 15,
                                                              t["overlay1"], 500, MONO))))
     b.append(tl.group(tl.show([(ALERT, CHAR)], base=1),
-                      caption(28, cap_y, [("remote: ", t["overlay1"]), ("force-push detected. releasing the T. rex...", t["red"])], "")))
+                      caption(28, cap_y, [("remote: ", t["overlay1"]), ("force-push detected. releasing the dragon...", t["red"])], "")))
     b.append(tl.group(tl.show([(CHAR, LIFE)]),
                       caption(28, cap_y, [("error: ", t["red"]), ("cat.exe has stopped responding", t["peach"])], "")))
     b.append(tl.group(tl.show([(LIFE, REVERT)]),
@@ -1860,7 +1892,7 @@ def render_incident(cfg, t, C):
                       tl.group(tl.show([(RESPAWN + .3, P)]),
                                text(28 + (len(rev_cmd) + 4) * 9, cap_y, "-> cat restored from backup", 15, t["green"], 600, MONO))))
     calm_pill, w1 = pill(0, 0, "prod · friday 17:59", t["overlay1"], t, 11.5, "izpulse0")
-    alert_pill, w2 = pill(0, 0, "T. REX ALERT", t["red"], t, 11.5, "pulse")
+    alert_pill, w2 = pill(0, 0, "DRAGON ALERT", t["red"], t, 11.5, "pulse")
     b.append(tl.group(tl.show([(0, ALERT), (CHAR + .6, P)]), f'<g transform="translate({f2(W - 24 - w1)} 24)">{calm_pill}</g>'))
     b.append(tl.group(tl.show([(ALERT, CHAR + .6)], base=1), f'<g transform="translate({f2(W - 24 - w2)} 24)">{alert_pill}</g>'))
 
@@ -1881,7 +1913,7 @@ def render_incident(cfg, t, C):
     css.append(".izpulse0{display:none}")
     css.extend(tl.css)
     return svg_doc(W, H, "".join(b), "".join(css), "Incident report: force-push on a Friday",
-                   "A pink T. rex fires laser beams from its eyes at the pixel cat after a force-push. The cat flashes "
+                   "A pink winged dragon breathes fire at the pixel cat after a force-push. The cat flashes "
                    "into an X-ray skeleton, turns to charcoal, crumbles into ash leaving its skeleton, then git revert "
                    "brings it back with one of its nine lives used up.", defs)
 
