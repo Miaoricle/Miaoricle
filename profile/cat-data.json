@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T19:25:05Z",
+  "generated_at": "2026-11-07T05:58:13Z",
   "login": "Miaoricle",
   "calendar": {
     "total": 22,
@@ -1588,19 +1588,23 @@
         {
           "d": "2026-11-06",
           "c": 0
+        },
+        {
+          "d": "2026-11-07",
+          "c": 0
         }
       ]
     ]
   },
   "stats": {
-    "today": "2026-11-06",
+    "today": "2026-11-07",
     "total_all_time": 22,
     "first_date": "2026-04-29",
     "last_active": "2026-11-05",
     "current_streak": {
-      "len": 1,
-      "start": "2026-11-05",
-      "end": "2026-11-05"
+      "len": 0,
+      "start": null,
+      "end": null
     },
     "longest_streak": {
       "len": 1,
@@ -1609,11 +1613,11 @@
     },
     "last7": [
       0,
-      0,
       4,
       0,
       0,
       4,
+      0,
       0
     ],
     "week_total": 8,
