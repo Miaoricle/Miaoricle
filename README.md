@@ -265,6 +265,50 @@ A personal, ad-free map tracker for GTA VI's Leonida, built as an installable **
 <tr>
 <td width="50%" valign="top">
 
+### 🔎 [yolocheck](https://github.com/Miaoricle/yolo-dataset-check)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_python_CLI-94E2D5?style=flat-square" alt="open source · python CLI" />
+
+Finds problems in a **YOLO object-detection dataset** before you train: unnormalised boxes, wrong class ids, duplicate annotations, corrupt images and **train/val leakage** by content hash. Prints a summary, writes an HTML report, and fails CI when there are errors.
+
+`Python` `Pillow` `pytest` `GitHub Actions`
+
+<a href="https://github.com/Miaoricle/yolo-dataset-check"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### ✋ [Gesture Pilot](https://github.com/Miaoricle/gesture-pilot)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_computer_vision-CBA6F7?style=flat-square" alt="open source · computer vision" />
+
+Fly a simulated drone with **hand gestures** from your webcam. A browser demo of the idea behind our UAV gesture-control paper: **MediaPipe** runs on-device, and a temporal smoother stops single noisy frames from triggering commands.
+
+`TypeScript` `MediaPipe` `Canvas` `Vitest`
+
+<a href="https://miaoricle.github.io/gesture-pilot/"><img src="https://img.shields.io/badge/live_demo-1E1E2E?style=flat-square&logo=githubpages&logoColor=CDD6F4" alt="Live demo" /></a>
+<a href="https://github.com/Miaoricle/gesture-pilot"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
+
+### 🗓️ [Study-group API](https://github.com/Miaoricle/studygroup-api)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_backend-FAB387?style=flat-square" alt="open source · backend" />
+
+A REST API for university study groups: **JWT auth**, public and invite-only private groups, scheduled sessions with RSVPs and a personal agenda. 20 HTTP-level tests, a non-root **Docker** image, and CI that smoke-tests the container.
+
+`FastAPI` `SQLModel` `JWT` `Docker` `pytest`
+
+<a href="https://github.com/Miaoricle/studygroup-api"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
 ### 🦾 ML for Assistive Technology
 
 <img src="https://img.shields.io/badge/international_workshop_%C2%B7_ITS_Indonesia-CBA6F7?style=flat-square" alt="international workshop · ITS Indonesia" />
