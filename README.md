@@ -307,17 +307,30 @@ A REST API for university study groups: **JWT auth**, public and invite-only pri
 </td>
 </tr>
 <tr>
-<td colspan="2" valign="top">
+<td width="50%" valign="top">
 
 ### 📝 [EduHub](https://github.com/Miaoricle/eduhub)
 
 <img src="https://img.shields.io/badge/coursework_%C2%B7_reworked-89DCEB?style=flat-square" alt="coursework · reworked" />
 
-A **Django** quiz platform for Software Engineering students: timed quizzes marked on the server, an explanation for every answer, and lecturer and admin roles. It started as ISB46803 coursework. I reworked it to close a role-escalation hole, move the quiz timer to the server, stop leaderboard farming, add 20 tests and CI, and replace the design.
+A **Django** quiz platform for Software Engineering students: timed quizzes marked on the server, an explanation for every answer, and lecturer and admin roles. Reworked from ISB46803 coursework to close a role-escalation hole, move the timer to the server, stop leaderboard farming, and add 20 tests and CI.
 
-`Django` `Python` `SQLite` `Bootstrap` `GitHub Actions`
+`Django` `Python` `SQLite` `Bootstrap`
 
 <a href="https://github.com/Miaoricle/eduhub"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### 🩺 [MediBook](https://github.com/Miaoricle/medibook)
+
+<img src="https://img.shields.io/badge/coursework_%C2%B7_reworked-A6E3A1?style=flat-square" alt="coursework · reworked" />
+
+A **Django** clinic booking system: describe your symptoms to find the right department, book a free slot on a day-by-day grid, and get a printable prescription. Reworked to fix cancelled slots that could never be rebooked and patient double-booking (now **database constraints**), add appointment status rules, and add 25 tests.
+
+`Django` `Python` `SQLite` `Bootstrap`
+
+<a href="https://github.com/Miaoricle/medibook"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
 
 </td>
 </tr>
