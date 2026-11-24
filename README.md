@@ -307,6 +307,21 @@ A REST API for university study groups: **JWT auth**, public and invite-only pri
 </td>
 </tr>
 <tr>
+<td colspan="2" valign="top">
+
+### 📝 [EduHub](https://github.com/Miaoricle/eduhub)
+
+<img src="https://img.shields.io/badge/coursework_%C2%B7_reworked-89DCEB?style=flat-square" alt="coursework · reworked" />
+
+A **Django** quiz platform for Software Engineering students: timed quizzes marked on the server, an explanation for every answer, and lecturer and admin roles. It started as ISB46803 coursework. I reworked it to close a role-escalation hole, move the quiz timer to the server, stop leaderboard farming, add 20 tests and CI, and replace the design.
+
+`Django` `Python` `SQLite` `Bootstrap` `GitHub Actions`
+
+<a href="https://github.com/Miaoricle/eduhub"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 ### 🦾 ML for Assistive Technology
