@@ -30,6 +30,7 @@
 - 🚁 Co-author of a paper on **real-time hand gesture recognition for UAV control** (LSTM), presenting it this November
 - 🏃 **FitAlign**, my final year project: an all-in-one Flutter fitness app
 - 💼 **Freelance developer**: web & mobile builds for real clients
+- 🧰 Building **free, open-source tools for students**: [Study Planner](https://miaoricle.github.io/study-planner/), [CGPA Planner](https://miaoricle.github.io/cgpa-planner/) and [Recall](https://miaoricle.github.io/recall/)
 - 📊 Turning data into stories with **Python**, Pandas and NetworkX
 - 🎯 Goal: keep growing in **AI, machine learning & computer vision research**
 - 💬 Ask me about **object detection**, **Flutter** or **PHP/MySQL**
@@ -199,6 +200,65 @@ Who edits Wikipedia, and how do they collaborate? Pulls edit histories from the 
 `Python` `Pandas` `NetworkX` `Matplotlib` `MediaWiki API`
 
 <a href="https://github.com/Miaoricle/wikipedia-edit-analysis"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 📅 [Study Planner](https://github.com/Miaoricle/study-planner)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_student_tool-89B4FA?style=flat-square" alt="open source · student tool" />
+
+Weekly timetable, assignment deadlines and a **Pomodoro focus timer** in one place. Works on phone and desktop, installs as an app (PWA), runs offline and keeps everything in the browser: no account, no server.
+
+`React` `TypeScript` `Tailwind CSS` `PWA` `GitHub Actions`
+
+<a href="https://miaoricle.github.io/study-planner/"><img src="https://img.shields.io/badge/live_demo-1E1E2E?style=flat-square&logo=githubpages&logoColor=CDD6F4" alt="Live demo" /></a>
+<a href="https://github.com/Miaoricle/study-planner"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### 🎓 [CGPA Planner](https://github.com/Miaoricle/cgpa-planner)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_student_tool-F9E2AF?style=flat-square" alt="open source · student tool" />
+
+GPA/CGPA calculator on the **Malaysian 4.00 scale**. A target planner works out the average GPA you need over your remaining credits, and Dean's List semesters get a stamp. The GPA maths is unit-tested.
+
+`React` `TypeScript` `Vitest` `Tailwind CSS`
+
+<a href="https://miaoricle.github.io/cgpa-planner/"><img src="https://img.shields.io/badge/live_demo-1E1E2E?style=flat-square&logo=githubpages&logoColor=CDD6F4" alt="Live demo" /></a>
+<a href="https://github.com/Miaoricle/cgpa-planner"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🗂️ [Recall](https://github.com/Miaoricle/recall)
+
+<img src="https://img.shields.io/badge/open_source_%C2%B7_student_tool-A6E3A1?style=flat-square" alt="open source · student tool" />
+
+Flashcards with **spaced repetition** (a simplified SM-2, the algorithm behind Anki). Paste cards straight from a spreadsheet, study with the keyboard, and review each card right before you'd forget it.
+
+`React` `TypeScript` `Vitest` `SM-2`
+
+<a href="https://miaoricle.github.io/recall/"><img src="https://img.shields.io/badge/live_demo-1E1E2E?style=flat-square&logo=githubpages&logoColor=CDD6F4" alt="Live demo" /></a>
+<a href="https://github.com/Miaoricle/recall"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
+
+</td>
+<td width="50%" valign="top">
+
+### 🗺️ [Leonida Tracker](https://github.com/Miaoricle/leonida-tracker)
+
+<img src="https://img.shields.io/badge/side_project_%C2%B7_public_repo-F5C2E7?style=flat-square" alt="side project · public repo" />
+
+A personal, ad-free map tracker for GTA VI's Leonida, built as an installable **PWA** that works offline. Map tiles from gtadb.org (CC BY 4.0).
+
+`TypeScript` `PWA` `Maps`
+
+<a href="https://github.com/Miaoricle/leonida-tracker"><img src="https://img.shields.io/badge/view_repo-1E1E2E?style=flat-square&logo=github&logoColor=CDD6F4" alt="View repo" /></a>
 
 </td>
 </tr>
